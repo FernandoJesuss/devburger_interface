@@ -61,6 +61,7 @@ export const Title = styled.h2`
 
  span {
     color: #9758A6 ;
+    font-family: "Road Rage", sans-serif;
  }
 
 `;
@@ -101,7 +102,3 @@ label {
 
 // `;
 
-export const Button = styled.button`
-
-
-`;

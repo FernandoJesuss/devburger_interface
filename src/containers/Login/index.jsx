@@ -6,10 +6,11 @@ import {
   Form,
   InputContainer,
   
-  Button,
+
 } from './styles';
 
 import Logo from '../../assets/Logo.svg';
+import {Button} from "../../components/Button";
 
 export function Login() {
   return (
