@@ -15,4 +15,8 @@ background-color: #6f357c;
 border: 1px solid #fff;
 }
 
+&:active {
+    background-color: #6f355d;
+}
+
 `;

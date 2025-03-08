@@ -1,11 +1,13 @@
-import { useForm } from 'react-hook-form';  
-import { yupResolver } from '@hookform/resolvers/yup';  
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+import { toast } from 'react-toastify';
 
 
+import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
-import {Button} from "../../components/Button";
+import { Button } from "../../components/Button";
 
 import {
   Container,
@@ -14,30 +16,52 @@ import {
   Title,
   Form,
   InputContainer,
-  
+
 
 } from './styles';
 
 export function Login() {
 
   const schema = yup
-.object({
-  email: yup.string().email("Digite um e-mail válido").required("O e-mail é obrigatório"),
-  password: yup.string().min(6, " A senha deve ter pelo menos 6 caracteres").required("Digite uma senha"),
-})
-.required();
+    .object({
+      email: yup.string().email("Digite um e-mail válido").required("O e-mail é obrigatório"),
+      password: yup.string().min(6, " A senha deve ter pelo menos 6 caracteres").required("Digite uma senha"),
+    })
+    .required();
 
 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm({
-  resolver: yupResolver(schema),
-})
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
 
-console.log(errors);
-const onSubmit = (data) => console.log(data)
+  console.log(errors);
+
+  const onSubmit = async (data) => {
+    const response = await toast.promise(
+      api.post("/session", {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+pending: "Verificando seus dados ",
+success: "Seja Bem-Vindo(a) 👌",
+error: "Email ou Senha Incorretos 🤯",
+      },
+
+    );
+
+
+
+
+
+
+
+    console.log(response);
+  };
 
 
 
@@ -75,7 +99,7 @@ const onSubmit = (data) => console.log(data)
             <input type="password" {...register("password")} />
             <p>{errors?.password?.message}</p>
           </InputContainer>
-          
+
 
           <Button type="submit" >Entra</Button>
         </Form>
