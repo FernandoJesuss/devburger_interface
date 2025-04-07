@@ -24,14 +24,10 @@ background: linear-gradient(rgba(255, 255, 255, 0.5),
 rgba(255, 255, 255, 0.4)
 ),
 url("${Background}");
-height: 100%;
+height: 500px;
 
 
 `;
 
-export const Content = styled.div `
-padding-bottom: 70px;
 
-
-`;
 

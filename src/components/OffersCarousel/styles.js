@@ -5,7 +5,15 @@ export const Container = styled.div`
     padding-right: 40px;
 }
 
+overflow-x: hidden;
+
 padding-left: 40px;
+padding-bottom: 40px;
+
+.react-multi-carousel-list {
+    overflow: visible;
+
+}
 
 `;
 
@@ -34,32 +42,3 @@ margin: 70px 0;
 `;
 
 
-export const ContainerItems = styled.div`
-background: url("${props => props.imageUrl}");
-background-position:center ;
-background-size: cover;
-border-radius: 20px;
-
-display: flex;
-align-items: center;
-padding: 20px 10px;
-width: 100%;
-height: 250px;
-
-
-p {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 30px;
-    border-radius: 30px;
-    font-size: 22.5px;
-    font-weight: bold;
-    margin-top: 50px;
-
-
-}
-
-
-
-
-`;
