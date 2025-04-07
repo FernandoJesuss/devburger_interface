@@ -4,6 +4,7 @@ import { Login } from "../containers/Login";
 import { Register } from "../containers/Register";
 
 import { Home } from "../containers/Home";
+import { Menu } from "../containers/Menu";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,12 @@ export const router = createBrowserRouter([
 {
     path: "/cadastro",
     element: <Register/>,
+    
+},
+
+{
+    path: "/cardapio",
+    element: <Menu/>,
     
 },
 
