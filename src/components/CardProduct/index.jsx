@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { CardImage, Container } from "./styles";
 import { CartButton } from "../CartButton";
+import { formatPrice } from "../../utils/formatPrice";
 
 
 
@@ -15,7 +16,7 @@ export function CardProduct({product}) {
             <CardImage src={product.url} alt={product.name}/>
             <div>
                 <p>{product.name}</p>
-                <strong>{product.price}</strong>
+                <strong>{formatPrice(product.price)}</strong>
             </div>
             <CartButton></CartButton>
         </Container>

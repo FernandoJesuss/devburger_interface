@@ -5,7 +5,7 @@ export const Container = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 20px;
+gap: 40px;
 padding: 20px;
 border-radius: 8px;
 background-color: #ffff;
@@ -19,14 +19,15 @@ div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 5px;
 
 
-    p{
+    p {
         font-size: 18px;
         color: #FF8c05;
         line-height: 20px;
         font-weight: 700;
-        margin-top: 40px;
+        margin-top: 50px;
 
     }
 

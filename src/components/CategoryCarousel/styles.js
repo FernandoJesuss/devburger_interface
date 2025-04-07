@@ -7,6 +7,18 @@ export const Container = styled.div`
 
 padding-left: 40px;
 
+.react-multiple-carousel__arrow--left {
+    left: 15px;
+    top: 10px;
+
+}
+
+.react-multiple-carousel__arrow--right {
+    /* right: 15px; */
+    top: 10px;
+
+}
+
 `;
 
 export const Title = styled.h2`
