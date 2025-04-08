@@ -10,8 +10,7 @@ import { formatPrice } from "../../utils/formatPrice";
 
 
 export function CardProduct({product}) {
-    console.log(product);
-    return (
+        return (
         <Container>
             <CardImage src={product.url} alt={product.name}/>
             <div>
