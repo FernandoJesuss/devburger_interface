@@ -3,6 +3,7 @@ import BannerHamburger from "../../assets/BannerHamburger.svg";
 import Background from "../../assets/Background.svg";
 import { Link } from "react-router-dom";
 
+
 export const Container = styled.div `
 width: 100%;
 min-height: 100vh;
@@ -87,10 +88,31 @@ justify-content: center;
 max-width: 1280px;
 margin: 50px auto;
 
+`;
 
+export const BackButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  position: relative;
+  top: 12px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #9758a6; 
+  color: #fff; 
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
+  &:hover {
+    background-color: #7c4691; 
+  }
 
-
-
-
+  &:active {
+    background-color: #5e2f6e; 
+  }
 `;
