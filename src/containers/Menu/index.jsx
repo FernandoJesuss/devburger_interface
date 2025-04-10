@@ -3,11 +3,16 @@ import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton } fr
 import { api } from "../../services/api";
 import { CardProduct } from "../../components/CardProduct";
 import { formatPrice } from "../../utils/formatPrice";
+import { useNavigate } from "react-router-dom";
 
 
 export function Menu() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [activeCategory, setActiveCategory] = useState(0)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadCategories() {
@@ -34,6 +39,18 @@ export function Menu() {
 
     }, []);
 
+    useEffect(() => {
+        if(activeCategory === 0) {
+            setFilteredProducts(products);
+        } else {
+            const newFilteredProducts = products.filter((product) => product.category_id === activeCategory,
+        );
+
+        setFilteredProducts(newFilteredProducts);
+        }
+
+    }, [products, activeCategory ])
+
     return (
         <Container>
             <Banner>
@@ -51,13 +68,34 @@ export function Menu() {
 
             </Banner>
             <CategoryMenu>
-{categories.map(category => (
-    <CategoryButton key={category.id}>{category.name}</CategoryButton>
-))}
+                {categories.map(category => (
+                    <CategoryButton
+                     key={category.id}
+$isActiveCategory={category.id === activeCategory}
+
+
+                        onClick={() => {
+                            navigate(
+                                {
+                                    pathname: "/cardapio",
+                                    search: `?categoria=${category.id}`,
+                                },
+                                {
+                                    replace: true,
+                                },
+
+                            );
+
+                            setActiveCategory(category.id);
+
+
+    }}
+                    >{category.name}</CategoryButton>
+                ))}
             </CategoryMenu>
 
             <ProductsContainer>
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <CardProduct product={product} key={product.id} />
                 ))}
             </ProductsContainer>
