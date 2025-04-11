@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
 import { Button } from "../../components/Button";
+import { useUser } from '../../hooks/UserContext';
 
 import {
   Container,
@@ -24,6 +25,7 @@ import {
 
 export function Login() {
   const navigate = useNavigate();
+  const { putUserData } = useUser();
 
   const schema = yup
     .object({
@@ -50,9 +52,8 @@ export function Login() {
   console.log(errors);
 
   const onSubmit = async (data) => {
-    const {data: {token},
-  
-  } = await toast.promise(
+    const {
+      data:userData } = await toast.promise(
       api.post("/session", {
         email: data.email,
         password: data.password,
@@ -79,8 +80,8 @@ export function Login() {
 
 
 
-
-    localStorage.setItem("token", token);
+putUserData(userData)
+    // localStorage.setItem("token", token);
   };
 
 
@@ -121,7 +122,7 @@ export function Login() {
           </InputContainer>
 
 
-          <Button type="submit" >Entra</Button>
+          <Button type="submit" >Entrar</Button>
         </Form>
         <p>Não possui conta? <Link to="/cadastro">Clique aqui.</Link> </p>
       </RightContainer>
