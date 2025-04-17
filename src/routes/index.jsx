@@ -1,15 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
+// import React from "react";
 
 import { Login } from "../containers/Login"; 
 import { Register } from "../containers/Register";
 
+import { Header } from "../components/Header"; 
 import { Home } from "../containers/Home";
 import { Menu } from "../containers/Menu";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: (
+            <>
+            <Header />
+            <Home />
+            </>
+        ),
         
     },
 {
