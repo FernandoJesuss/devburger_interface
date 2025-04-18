@@ -95,7 +95,9 @@ setCartProducts(newProductsInCart);
     };
 
     const clearCart = () => {
-       
+       setCartProducts([]);
+
+       updateLocalStorage([]);
     };
 
     const deleteProduct = (productId) => {
