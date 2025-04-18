@@ -10,7 +10,6 @@ rgba(255, 255, 255, 0.4)
 url("${Background}");
 min-height: 100vh;
 
-
 `;
 
 export const Banner = styled.div`
@@ -48,7 +47,8 @@ transform: translateX(-50%);
     content: '';
     width: 56px;
     height: 4px;
-    background-color: #61a120;
+    /* background-color: #61a120; */
+    background-color: #7952a5;
 }
 
 
