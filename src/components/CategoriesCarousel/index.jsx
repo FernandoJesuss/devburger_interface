@@ -1,11 +1,12 @@
 
-import React, { useState, useEffect } from "react";
-import { api } from "../../services/api";
+import { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { CategoryButton, Container, ContainerItems, Title } from "./styles"; 
+
 import { useNavigate } from "react-router-dom";
 
+import { api } from "../../services/api";
+import { CategoryButton, Container, ContainerItems, Title } from "./styles"; 
 
 export function CategoryCarousel() {
     const [categories, setCategories] = useState([]);
