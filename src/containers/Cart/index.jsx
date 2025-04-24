@@ -1,28 +1,5 @@
-// import Logo from "../../assets/Logo.svg";
-// import { CartItems } from "../../components/CartItems";
-// import { Container } from "../Login/styles";
-// import { Banner, Content, Title, Container } from "./styles";
-
-
-
-// export function Cart () {
-//     return(
-//         <Container>
-//             <Banner>
-//             <img src={Logo} alt="logo devburger" />
-//             </Banner>
-//             <Title>Checkout - Pedido </Title>
-//             <Content>
-//                 <CartItems />
-//                 {/* <CartResume /> */}
-//             </Content>
-//         </Container>
-//     )
-// }
-
-
 import Logo from "../../assets/Logo.svg";
-import { CartItems } from "../../components/CartItems";
+import { CartItems, CartResume } from "../../components";
 import { Banner, Content, Title, Container } from "./styles";
 
 export function Cart() {
@@ -34,7 +11,7 @@ export function Cart() {
             <Title>Checkout - Pedido</Title>
             <Content>
                 <CartItems />
-                {/* <CartResume /> */}
+                <CartResume />
             </Content>
         </Container>
     );

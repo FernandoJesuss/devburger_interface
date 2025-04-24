@@ -56,7 +56,7 @@ transform: translateX(-50%);
 
 export const Content = styled.div`
 display: grid;
-grid-template-columns: 1fr 20%;
+grid-template-columns: 1fr 30%;
 gap: 20px;
 width: 100%;
 max-width: 1280px;
