@@ -32,19 +32,19 @@ export const router = createBrowserRouter([
         path: "/cardapio",
         element: (
             <>
-                <Header />,
-                <Menu />,
+                <Header />
+                <Menu />
             </>
         ),
     },
 
     {
         path: "/carrinho",
-        element: (
-            <>
+        element: 
+            
                 <Cart />
-            </>
-        )
+            
+        
     },
 
     {

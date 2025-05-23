@@ -14,8 +14,8 @@ min-height: 100vh;
 
 export const Banner = styled.div`
 background: url("${Texture}");
-background-color: #f0f0f0;
-background-color: #1f1f1f;
+background-color: ${(props) => props.theme.secondWhite};
+background-color: ${(props) => props.theme.mainBlack};
 background-size: cover;
 background-position: center;
 display: flex;

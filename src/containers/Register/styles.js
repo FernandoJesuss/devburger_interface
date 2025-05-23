@@ -44,7 +44,7 @@ background: url('${Background}');
 background-color: #1e1e1e;
 
 p{
-   color: #fff;
+   color: ${(props) => props.theme.white};
    font-size: 18px;
    font-weight: 800;
 
@@ -57,7 +57,7 @@ p{
 
 export const Title = styled.h2`
  font-family: "Road Rage", sans-serif;
- color: #9758a6;
+ color: ${(props) => props.theme.purple};
  font-size: 40px;
 
 `;
@@ -89,14 +89,14 @@ input {
 label {
     font-size: 18px;
     font-weight: 600;
-    color: #fff;
+    color: ${(props) => props.theme.white};
 
 }
 
     p {
     font-size: 14px;
     line-height: 80%;
-    color: #cf3057;
+    color: ${(props) => props.theme.darkRed};
     font-weight: 600;
     height: 10px;
 
@@ -107,5 +107,5 @@ label {
 
 export const Link = styled(ReactLink)`
 text-decoration: none;
-color: #fff;
+color: ${(props) => props.theme.white};
 `;
