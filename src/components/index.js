@@ -16,6 +16,8 @@ export * from "./CartItems";
 
 // export * from "./Stripe/CheckoutForm";
 
+export * from "./SideNavAdmin";
+
 
 
 
