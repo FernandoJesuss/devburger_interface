@@ -53,49 +53,37 @@ export function Login() {
 
   const onSubmit = async (data) => {
     const {
-      data:userData } = await toast.promise(
-      api.post("/session", {
-        email: data.email,
-        password: data.password,
-      }),
-      {
-        pending: "Verificando seus dados ",
-        success: {
-          render() {
-            setTimeout(() => {
-              navigate("/");
-            },2000);
-            return "Seja Bem-Vindo(a) 👌";
+      data: userData } = await toast.promise(
+        api.post("/session", {
+          email: data.email,
+          password: data.password,
+        }),
+        {
+          pending: "Verificando seus dados ",
+          success: {
+            render() {
+              setTimeout(() => {
+                if (userData?.admin) {
+                   navigate("/admin/home");
+                } else {
+                  navigate("/");
+                }
 
+
+              }, 2000);
+              return "Seja Bem-Vindo(a) 👌";
+
+            },
           },
-        },
 
           error: "Email ou Senha Incorretos 🤯",
         },
 
-    );
+      );
 
-
-
-
-
-
-putUserData(userData)
+    putUserData(userData)
     // localStorage.setItem("token", token);
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <Container>
