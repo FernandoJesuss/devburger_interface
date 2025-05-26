@@ -10,25 +10,41 @@ import { api } from "../../../services/api";
 
 
 import { Row } from './row';
+import { orderStatusOptions } from './orderStatus';
+import { FilterOption, Filter } from "./styles";
 
 
 
 
 
 export function Orders() {
-    const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState([]);//BACKUP
+    const [filteredOrders, setFilteredOrders] = useState([]);// Os VALORES QU ESTÂO NA TELA
+    const [activeStatus, setActiveStatus] = useState(0);
+   
+   
     const [rows, setRows] = useState([]);
+
+      
 
 
     useEffect(() => {
         async function loadOrders() {
             const { data } = await api.get("orders");
+
             setOrders(data);
+             setFilteredOrders(data)
+            // filteredOrders(data)
+
+            
         }
         loadOrders();
     }, []);
 
-  
+    useEffect(() => {
+    const newRows = filteredOrders.map( (order) => createData(order));
+        setRows(newRows);
+    }, [filteredOrders]);
 
     function createData(order) {
         return {
@@ -40,19 +56,35 @@ export function Orders() {
         };
     }
 
+function handleStatus(status) {
+    if (status.id === 0) {
+        setFilteredOrders(orders);
+    } else {
+        const newOrders = orders.filter( (order) => order.status === status.value);
+         setFilteredOrders(newOrders);
+    }
 
-  useEffect(() => {
-    const newRows = orders.map( (order) => createData(order));
-        setRows(newRows);
-    }, [orders]);
-
-
+    setActiveStatus(status.id)
+}
 
 
 
 
 
     return (
+<>
+        <Filter>
+            {orderStatusOptions.map((Status) => (
+            <FilterOption 
+            key={Status.id} onClick={() => handleStatus(Status)}
+            $isActiveStatus={activeStatus === Status.id}
+            >
+
+
+                {Status.label}
+                </FilterOption>
+            ))}
+        </Filter>
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
@@ -79,5 +111,6 @@ export function Orders() {
                 </TableBody>
             </Table>
         </TableContainer>
+        </>
     );
 }
