@@ -4,16 +4,21 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
 import { api } from "../../../services/api"
-import { Container, ErrorMessage, SubmitButton, Form, InputGroup, Label, Input, LabelUpload, Select } from "./styles"
+import { Container, ContainerCheckbox, ErrorMessage, SubmitButton, Form, InputGroup, Label, Input, LabelUpload, Select } from "./styles"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
+import { useNavigate } from "react-router-dom";
 
 
 
 const schema = yup.object({
     name: yup.string().required("Nome é obrigatório"),
-    price: yup.number().positive("O preço deve ser um número positivo").required("Preço é obrigatório").typeError("Preço é obrigatório"),
+    price: yup.number()
+    .positive("O preço deve ser um número positivo")
+    .required("Preço é obrigatório")
+    .typeError("Preço é obrigatório"),
     category: yup.object().required("Categoria é obrigatória"),
+    offer:yup.bool(),
     file: yup
     .mixed()
     .test("required", "Um arquivo deve ser selecionado", (value) => {
@@ -35,6 +40,8 @@ const schema = yup.object({
 export function NewProduct() {
     const [fileName, setFileName] = useState(null)
     const [categories, setCategories] = useState([])
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function loadCategories() {
@@ -64,6 +71,7 @@ export function NewProduct() {
         productFormData.append("price", data.price * 100);
         productFormData.append("category_id", data.category.id);
         productFormData.append("file", data.file[0]);
+         productFormData.append("offer", data.offer);
 
         try {
             await toast.promise(api.post("/products", productFormData), {
@@ -75,6 +83,10 @@ export function NewProduct() {
             console.error("Erro ao adicionar produto:", error);
             toast.error("Ocorreu um erro ao adicionar o produto. Verifique os dados e tente novamente.");
         }
+
+        setTimeout(() => {
+    navigate("/admin/produtos");
+}, 2000);
     };
     return (
         <Container>
@@ -127,6 +139,14 @@ export function NewProduct() {
                     />
                      <ErrorMessage>{errors?.category?.message}</ErrorMessage>
                 </InputGroup>
+
+                 <InputGroup>
+                                    <ContainerCheckbox>
+                                        <input type="checkbox" 
+                                            {...register("offer")} />
+                                        <Label> Produto em Oferta ?</Label>
+                                    </ContainerCheckbox>
+                                </InputGroup>
 
                 <SubmitButton>Adicionar Produto</SubmitButton>
             </Form>

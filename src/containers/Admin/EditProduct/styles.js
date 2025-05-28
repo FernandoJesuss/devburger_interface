@@ -78,6 +78,7 @@ line-height: 80%;
 font-weight: 600;
 `;
 
+
 export const ContainerCheckbox = styled.div`
 display: flex;
 cursor: pointer;
@@ -92,4 +93,3 @@ input {
     cursor: pointer;
 }
 `;
-
