@@ -7,15 +7,20 @@ import { api } from "../../../services/api"
 import { Container, ErrorMessage, SubmitButton, Form, InputGroup, Label, Input, LabelUpload, Select } from "./styles"
 import { useEffect, useState } from "react"
 
-const schema = yup
-    .object({
-        name: yup.string().required(),
-        price: yup.number().positive().required(),
-        category: yup.object().required(),
-        file: yup.mixed(),
-    });
+// const schema = yup
+//     .object({
+//         name: yup.string().required(),
+//         price: yup.number().positive().required(),
+//         category: yup.object().required(),
+//         file: yup.mixed(),
+//     });
 
-
+const schema = yup.object({
+    name: yup.string().required("Nome é obrigatório"),
+    price: yup.number().positive("O preço deve ser um número positivo").required("Preço é obrigatório"),
+    category: yup.object().required("Categoria é obrigatória"),
+    file: yup.mixed().required("Um arquivo deve ser selecionado"), 
+}).required();
 
 
 export function NewProduct() {
@@ -28,6 +33,8 @@ export function NewProduct() {
 
             setCategories(data);
         }
+
+        loadCategories();
     }, []);
 
 
