@@ -50,7 +50,7 @@ export function Products() {
                             <TableCell align="center">Preço</TableCell>
                             <TableCell align="center">Produto em Oferta</TableCell>
                             <TableCell align="center">Imagem do Produto</TableCell>
-                            <TableCell align="center">Editar Produto)</TableCell>
+                            <TableCell align="center">Editar Produto</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -69,7 +69,7 @@ export function Products() {
                                     <EditButton onClick={() => editProduct(product)}>
                                         <Pencil />
                                     </EditButton>
-                                </TableCell>()
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
