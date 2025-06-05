@@ -31,6 +31,55 @@ O DevBurguer foi desenvolvido para proporcionar uma experiência completa de e-c
 - Feedback visual de compra bem-sucedida
 - Processamento seguro de transações
 
+## 📱 Screenshots do Projeto
+
+### 🔑 Tela de Login
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Login.png" alt="Tela de Login" width="600"/>
+
+*Sistema de autenticação com validação e feedback visual*
+
+### 🏠 Página Principal - Home
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Home.png" alt="Página Home" width="600"/>
+
+*Interface moderna com produtos organizados por categorias*
+
+### 🍽️ Página do Cardápio
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Card%C3%A1io.png" alt="Página do Cardápio" width="600"/>
+
+*Catálogo completo de produtos organizados por categorias*
+
+### 🛒 Carrinho de Compras
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20Carrinho.png" alt="Carrinho de Compras" width="600"/>
+
+*Gerenciamento de pedidos com cálculo automático e controle de quantidade*
+
+### 💳 Processo de Pagamento
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento.png" alt="Tela de Pagamento" width="600"/>
+
+*Integração com Stripe para pagamentos seguros em tempo real*
+
+### ✅ Confirmação de Compra
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento%20confirmado.png" alt="Pagamento Confirmado" width="600"/>
+
+*Feedback visual de compra realizada com sucesso*
+
+### 📦 Painel Administrativo
+<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20ADM.png" alt="Painel Administrativo" width="600"/>
+
+*Interface completa para gerenciamento de produtos e categorias*
+
+## 🎯 Funcionalidades em Destaque
+
+<div align="center">
+  
+| 🔐 **Autenticação** | 🛍️ **E-commerce** | 👨‍💼 **Admin** |
+|:---:|:---:|:---:|
+| Login/Cadastro Seguro | Carrinho Inteligente | CRUD Completo |
+| JWT + Validação | Stripe Integration | Gestão de Produtos |
+| Controle de Acesso | Cálculo Automático | Interface Intuitiva |
+
+</div>
+
 ## 📁 Estrutura do Projeto
 
 ### Frontend
@@ -103,7 +152,7 @@ src/
 ### Frontend
 - **React.js** - Biblioteca para construção da interface
 - **React Router** - Gerenciamento de rotas
-- **Styled Components** ou **CSS Modules** - Estilização
+- **Styled Components** - Estilização de componentes
 - **Axios** - Consumo de APIs
 - **Context API** - Gerenciamento de estado
 
@@ -115,8 +164,8 @@ src/
 - **Multer** - Upload de arquivos
 
 ### Banco de Dados
-- **PostgreSQL** ou **MongoDB** - Armazenamento de dados
-- **Sequelize** ou **Mongoose** - ORM/ODM
+- **PostgreSQL** - Banco de dados relacional
+- **Sequelize** - ORM para Node.js
 
 ### Integrações
 - **Stripe** - Gateway de pagamento
@@ -125,16 +174,16 @@ src/
 ## 🚀 Como Executar o Projeto
 
 ### Pré-requisitos
-- Node.js (versão 14 ou superior)
+- Node.js (versão 16 ou superior)
 - npm ou yarn
-- Banco de dados (PostgreSQL/MongoDB)
+- PostgreSQL
 - Conta no Stripe para chaves de API
 
 ### Instalação
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/devburguer.git
+git clone https://github.com/FernandoJesuss/devburguer.git
 cd devburguer
 ```
 
@@ -181,51 +230,9 @@ REACT_APP_STRIPE_PUBLIC_KEY=sua_chave_publica_stripe
 npm start
 ```
 
-## 📱 Screenshots do Projeto
-
-### 🔑 Tela de Login
-![Login](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Login.png)
-*Sistema de autenticação com validação e feedback visual*
-
-### 🏠 Página Principal - Home
-![Home](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Home.png)
-*Interface moderna com produtos organizados por categorias*
-
-### 🏠 Página Principal - Cardápio
-![Cardápio](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Card%C3%A1io.png)
-*Interface moderna com produtos organizados por categorias*
-
-### 🛒 Carrinho de Compras
-![Cart](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20Carrinho.png)
-*Gerenciamento de pedidos com cálculo automático e controle de quantidade*
-
-### 💳 Processo de Pagamento
-![Payment](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento.png)
-*Integração com Stripe para pagamentos seguros em tempo real*
-
-### ✅ Confirmação de Compra
-![Success](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento%20confirmado.png)
-*Feedback visual de compra realizada com sucesso*
-
-### 📦 Painel Administrativo
-![Admin](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20ADM.png)
-*Interface completa para gerenciamento de produtos e categorias*
-
----
-
-## 🎯 Funcionalidades em Destaque
-
-<div align="center">
-  
-| 🔐 **Autenticação** | 🛍️ **E-commerce** | 👨‍💼 **Admin** |
-|:---:|:---:|:---:|
-| Login/Cadastro Seguro | Carrinho Inteligente | CRUD Completo |
-| JWT + Validação | Stripe Integration | Gestão de Produtos |
-| Controle de Acesso | Cálculo Automático | Interface Intuitiva |
-
-</div>
-
-## 📱 Screenshots do Projeto
+O projeto estará disponível em:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:3001
 
 ## 📚 Aprendizados Técnicos
 
@@ -267,7 +274,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Fernando Santos (https://www.linkedin.com/in/fernando-santos-jesus/)
+**Fernando Santos**
+- LinkedIn: [fernando-santos-jesus](https://www.linkedin.com/in/fernando-santos-jesus/)
+- GitHub: [@FernandoJesuss](https://github.com/FernandoJesuss)
 
 ---
 
@@ -276,16 +285,13 @@ Desenvolvido por Fernando Santos (https://www.linkedin.com/in/fernando-santos-je
 - [Documentação do React](https://reactjs.org/)
 - [Documentação do Node.js](https://nodejs.org/)
 - [Documentação do Stripe](https://stripe.com/docs)
-- [Deploy no Heroku](https://devcenter.heroku.com/)
+- [Documentação do Express](https://expressjs.com/)
+- [Documentação do Sequelize](https://sequelize.org/)
 
 ---
 
-⭐ Se este projeto te ajudou, deixe uma estrela no repositório!
+<div align="center">
 
+⭐ **Se este projeto te ajudou, deixe uma estrela no repositório!** ⭐
 
-
-
-
-
-
-
+</div>
