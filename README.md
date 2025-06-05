@@ -72,14 +72,30 @@ src/
 
 ### Backend
 ```
-backend/
-├── 📁 controllers/            # Controladores das rotas
-├── 📁 middlewares/            # Middlewares customizados
-├── 📁 models/                 # Modelos do banco de dados
-├── 📁 routes/                 # Definições de rotas
-├── 📁 config/                 # Configurações do servidor
+src/
+├── 📁 app/                    # Core da aplicação
+│   ├── 📁 controllers/        # Controladores das rotas
+│   │   ├── 📁 stripe/         # Integração com Stripe
+│   │   │   └── CreatePaymentIntent.js
+│   │   ├── CategoryController.js    # Gestão de categorias
+│   │   ├── OrderController.js       # Gestão de pedidos
+│   │   ├── ProductController.js     # Gestão de produtos
+│   │   ├── SessionController.js     # Autenticação/Sessões
+│   │   └── UserController.js        # Gestão de usuários
+│   ├── 📁 middlewares/        # Middlewares customizados
+│   ├── 📁 models/             # Modelos do banco de dados
+│   └── 📁 schemas/            # Schemas de validação
+├── 📁 config/                 # Configurações da aplicação
+│   ├── auth.js               # Configuração de autenticação
+│   ├── database.js           # Configuração do banco
+│   └── multer.js             # Configuração de upload
+├── 📁 database/               # Estrutura do banco
+│   ├── 📁 migrations/         # Migrações do banco
+│   └── index.js              # Conexão com banco
 ├── 📁 uploads/                # Arquivos enviados pelos usuários
-└── server.js                  # Arquivo principal do servidor
+├── app.js                     # Configuração da aplicação
+├── routes.js                  # Definição das rotas
+└── server.js                  # Servidor principal
 ```
 
 ## 🛠️ Tecnologias Utilizadas
