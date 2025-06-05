@@ -184,28 +184,32 @@ npm start
 ## 📱 Screenshots do Projeto
 
 ### 🔑 Tela de Login
-![Login](./screenshots/login.png)
+![Login](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Login.png)
 *Sistema de autenticação com validação e feedback visual*
 
+### 🏠 Página Principal - Home
+![Home](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Home.png)
+*Interface moderna com produtos organizados por categorias*
+
 ### 🏠 Página Principal - Cardápio
-![Home](./screenshots/home.png)
+![Cardápio](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Card%C3%A1io.png)
 *Interface moderna com produtos organizados por categorias*
 
 ### 🛒 Carrinho de Compras
-![Cart](./screenshots/cart.png)
+![Cart](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20Carrinho.png)
 *Gerenciamento de pedidos com cálculo automático e controle de quantidade*
 
 ### 💳 Processo de Pagamento
-![Payment](./screenshots/payment.png)
+![Payment](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento.png)
 *Integração com Stripe para pagamentos seguros em tempo real*
 
-### 📦 Painel Administrativo
-![Admin](./screenshots/admin.png)
-*Interface completa para gerenciamento de produtos e categorias*
-
 ### ✅ Confirmação de Compra
-![Success](./screenshots/success.png)
+![Success](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento%20confirmado.png)
 *Feedback visual de compra realizada com sucesso*
+
+### 📦 Painel Administrativo
+![Admin](https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20ADM.png)
+*Interface completa para gerenciamento de produtos e categorias*
 
 ---
 
