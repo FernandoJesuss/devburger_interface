@@ -238,7 +238,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Fernando Santos(https://www.linkedin.com/in/fernando-santos-jesus/)
+Desenvolvido por Fernando Santos (https://www.linkedin.com/in/fernando-santos-jesus/)
 
 ---
 
