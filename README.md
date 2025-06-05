@@ -181,22 +181,47 @@ REACT_APP_STRIPE_PUBLIC_KEY=sua_chave_publica_stripe
 npm start
 ```
 
-## 📱 Screenshots
+## 📱 Screenshots do Projeto
 
 ### 🔑 Tela de Login
-Fluxo de autenticação seguro com validação de dados e feedback visual.
+![Login](./screenshots/login.png)
+*Sistema de autenticação com validação e feedback visual*
 
-### 🏠 Página Principal
-Exibição dinâmica dos produtos cadastrados, organizados por categorias com design responsivo.
+### 🏠 Página Principal - Cardápio
+![Home](./screenshots/home.png)
+*Interface moderna com produtos organizados por categorias*
 
 ### 🛒 Carrinho de Compras
-Controle completo de pedidos com cálculo automático e integração direta com o Stripe.
+![Cart](./screenshots/cart.png)
+*Gerenciamento de pedidos com cálculo automático e controle de quantidade*
+
+### 💳 Processo de Pagamento
+![Payment](./screenshots/payment.png)
+*Integração com Stripe para pagamentos seguros em tempo real*
 
 ### 📦 Painel Administrativo
-Interface completa para cadastro, edição e exclusão de produtos com controle de acesso.
+![Admin](./screenshots/admin.png)
+*Interface completa para gerenciamento de produtos e categorias*
 
-### 💳 Processamento de Pagamento
-Feedback visual claro de compra bem-sucedida com confirmação em tempo real.
+### ✅ Confirmação de Compra
+![Success](./screenshots/success.png)
+*Feedback visual de compra realizada com sucesso*
+
+---
+
+## 🎯 Funcionalidades em Destaque
+
+<div align="center">
+  
+| 🔐 **Autenticação** | 🛍️ **E-commerce** | 👨‍💼 **Admin** |
+|:---:|:---:|:---:|
+| Login/Cadastro Seguro | Carrinho Inteligente | CRUD Completo |
+| JWT + Validação | Stripe Integration | Gestão de Produtos |
+| Controle de Acesso | Cálculo Automático | Interface Intuitiva |
+
+</div>
+
+## 📱 Screenshots do Projeto
 
 ## 📚 Aprendizados Técnicos
 
@@ -252,3 +277,11 @@ Desenvolvido por Fernando Santos (https://www.linkedin.com/in/fernando-santos-je
 ---
 
 ⭐ Se este projeto te ajudou, deixe uma estrela no repositório!
+
+
+
+
+
+
+
+
