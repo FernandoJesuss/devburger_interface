@@ -487,381 +487,461 @@
 import { Link as ReactLink } from "react-router-dom";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════
    KEYFRAMES
-═══════════════════════════════════════ */
-const burgerFloat = keyframes`
-  0%,100% { transform: translateX(-50%) translateY(0)     rotate(-3deg); }
-  50%      { transform: translateX(-50%) translateY(-20px) rotate(3deg);  }
-`;
-
-const titleDrop = keyframes`
-  from { opacity: 0; transform: translateY(-30px); }
+═══════════════════════════ */
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
 
-const stripUp = keyframes`
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
+const cardIn = keyframes`
+  from { opacity: 0; transform: translateY(28px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 `;
 
-const neonPulse = keyframes`
-  0%,100% { color: rgba(255,69,0,.2); text-shadow: none; }
-  50%      { color: rgba(255,69,0,.5); text-shadow: 0 0 8px rgba(255,69,0,.4); }
+const photoZoom = keyframes`
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
 `;
 
-const riseEmber = keyframes`
-  0%   { transform: translateY(0) translateX(0) scale(1);   opacity: 0; }
-  10%  { opacity: 0.6; }
-  90%  { opacity: 0.15; }
-  100% { transform: translateY(-90vh) translateX(var(--drift)) scale(0); opacity: 0; }
+const shimmer = keyframes`
+  0%   { left: -80%; }
+  100% { left: 160%; }
 `;
 
-/* ═══════════════════════════════════════
+const pulse = keyframes`
+  0%,100% { transform: scale(1);   opacity: 1; }
+  50%      { transform: scale(.7); opacity: .5; }
+`;
+
+const floatUp = keyframes`
+  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: .07; }
+  90%  { opacity: .07; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+`;
+
+const glowPulse = keyframes`
+  0%,100% { opacity: .55; transform: scale(1); }
+  50%      { opacity: .85; transform: scale(1.06); }
+`;
+
+const amberGlow = keyframes`
+  0%,100% { box-shadow: 0 0 0 3px rgba(255,170,0,.1); }
+  50%      { box-shadow: 0 0 0 3px rgba(255,170,0,.2); }
+`;
+
+/* ═══════════════════════════
    GLOBAL
-═══════════════════════════════════════ */
+═══════════════════════════ */
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; overflow: hidden; }
   body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    background: #080604;
+    font-family: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+    background: #1a0f00;
     -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-thumb { background: #ff6b1a; border-radius: 2px; }
+`;
+
+/* ═══════════════════════════
+   CONTAINER — fundo com glow
+═══════════════════════════ */
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: #1a0f00;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+
+  /* glow de brasa no fundo */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -10%; left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; height: 50vh;
+    background: radial-gradient(ellipse, rgba(255,107,26,.18) 0%, transparent 70%);
+    pointer-events: none;
+    animation: ${glowPulse} 5s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(255,107,26,.07) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(255,170,51,.05) 0%, transparent 35%);
+    pointer-events: none;
   }
 `;
 
-/* ═══════════════════════════════════════
-   CONTAINER — ocupa tela toda
-═══════════════════════════════════════ */
-export const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  background: #080604;
+/* ═══════════════════════════
+   EMOJIS FLUTUANTES
+   — adicione <FloatingEmojis /> no Container
+═══════════════════════════ */
+export const FloatingEmojis = styled.div`
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+
+  /* os spans são criados via JS no Login.jsx */
+  span {
+    position: absolute;
+    font-size: 1.4rem;
+    opacity: 0;
+    animation: ${floatUp} linear infinite;
+    user-select: none;
+  }
+`;
+
+/* ═══════════════════════════
+   LEFT — não usado no novo layout
+═══════════════════════════ */
+export const LeftContainer = styled.div`
+  display: none;
+`;
+
+/* ═══════════════════════════
+   RIGHT = CARD CENTRALIZADO
+═══════════════════════════ */
+export const RightContainer = styled.div`
+  position: relative; z-index: 1;
+  width: min(440px, 100%);
+  background: #1e1208;
+  border-radius: 24px;
+  border: 1px solid rgba(255,160,60,.12);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,107,26,.05),
+    0 40px 80px rgba(0,0,0,.7),
+    0 0 100px rgba(255,107,26,.05);
+  animation: ${cardIn} .65s cubic-bezier(.4,0,.2,1) both;
+
+  /* parágrafo de cadastro */
+  > p {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 0 2rem 2rem;
+    font-size: .8rem;
+    color: rgba(255,230,180,.35);
+    animation: ${fadeUp} .5s .55s both;
+
+    a {
+      color: #ff6b1a;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+      &:hover { border-color: #ff6b1a; }
+    }
+  }
+`;
+
+/* ═══════════════════════════
+   PHOTO STRIP — foto no topo do card
+═══════════════════════════ */
+export const PhotoStrip = styled.div`
+  height: 200px;
   position: relative;
   overflow: hidden;
 
-  /* grade perspectiva */
-  &::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(rgba(255,69,0,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,69,0,.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    transform: rotateX(55deg) scale(2.2) translateY(18%);
-    transform-origin: center bottom;
-    pointer-events: none;
+  img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    display: block;
+    filter: brightness(.75) saturate(1.3) contrast(1.05);
+    animation: ${photoZoom} 14s ease-in-out infinite alternate;
   }
 
-  /* glow do chão */
+  /* fade para o card */
   &::after {
     content: '';
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 1;
-    height: 45vh;
-    background: radial-gradient(ellipse at 50% 100%,
-      rgba(255,69,0,.28) 0%,
-      rgba(255,120,0,.1) 30%,
-      transparent 70%
-    );
-    pointer-events: none;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
+    background: linear-gradient(0deg, #1e1208 0%, transparent 100%);
   }
 `;
 
-/* ═══════════════════════════════════════
-   LEFT — não existe no novo layout,
-   mas mantemos para não quebrar o import.
-   O logo fica no LeftContainer como burger emoji
-═══════════════════════════════════════ */
-export const LeftContainer = styled.div`
-  display: none; /* layout novo não usa split */
+/* ═══════════════════════════
+   LOGO SOBRE A FOTO
+═══════════════════════════ */
+export const LogoOver = styled.div`
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 1.75rem 1.25rem;
+
+  .logo {
+    display: flex; align-items: center; gap: .65rem;
+  }
+  .logo-icon {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, #ff6b1a, #ffaa33);
+    border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(255,107,26,.45), 0 0 0 2px rgba(255,107,26,.15);
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    &:hover { transform: scale(1.08) rotate(-5deg); }
+  }
+  .logo-dev {
+    font-size: .58rem; font-weight: 700;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: #ffaa33; display: block; line-height: 1; margin-bottom: .15rem;
+  }
+  .logo-name {
+    font-size: 1.25rem; font-weight: 800;
+    letter-spacing: -.03em; color: #fff;
+    display: block; line-height: 1;
+  }
+
+  /* badge aberto agora */
+  .open-badge {
+    display: flex; align-items: center; gap: .35rem;
+    background: rgba(34,197,94,.12);
+    border: 1px solid rgba(34,197,94,.25);
+    border-radius: 99px;
+    padding: .28rem .7rem;
+    font-size: .62rem; font-weight: 700;
+    color: #4ade80; letter-spacing: .06em;
+  }
+  .open-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80;
+    animation: ${pulse} 2s ease infinite;
+  }
 `;
 
-/* ═══════════════════════════════════════
-   BURGER HERO — emoji flutuando
-   (coloque <div className="burger-hero">🍔</div>
-    dentro do Container, fora do RightContainer)
-═══════════════════════════════════════ */
-export const BurgerHero = styled.div`
-  position: fixed;
-  bottom: 18vh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  font-size: clamp(10rem, 22vw, 18rem);
-  line-height: 1;
-  filter:
-    drop-shadow(0 0 30px rgba(255,80,0,.7))
-    drop-shadow(0 0 80px rgba(255,140,0,.3))
-    drop-shadow(0 40px 60px rgba(0,0,0,.9));
-  animation: ${burgerFloat} 4s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
+/* ═══════════════════════════
+   FORM BODY
+═══════════════════════════ */
+export const FormBody = styled.div`
+  padding: 1.25rem 1.75rem 0;
 `;
 
-/* ═══════════════════════════════════════
-   ARC TITLE — topo centralizado
-═══════════════════════════════════════ */
-export const ArcTitle = styled.div`
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 5;
+/* ═══════════════════════════
+   TITLE
+═══════════════════════════ */
+export const Title = styled.h2`
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: #fdf6e9;
+  line-height: 1.2;
+  margin-bottom: .35rem;
+  animation: ${fadeUp} .5s .15s both;
+
+  span {
+    /* gradiente animado no span */
+    background: linear-gradient(90deg, #ff6b1a, #ffaa00, #ff6b1a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+  }
+`;
+
+export const TitleSub = styled.p`
+  font-size: .82rem;
+  color: rgba(255,230,180,.38);
+  font-weight: 300;
+  margin-bottom: 1.75rem;
+  animation: ${fadeUp} .5s .2s both;
+`;
+
+/* ═══════════════════════════
+   FORM
+═══════════════════════════ */
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 2.5rem;
-  pointer-events: none;
-  animation: ${titleDrop} .8s cubic-bezier(.4,0,.2,1) both;
-
-  .dev-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: .65rem; font-weight: 700;
-    letter-spacing: .4em; text-transform: uppercase;
-    color: #ff4500;
-    margin-bottom: .5rem;
-  }
+  gap: .95rem;
+  animation: ${fadeUp} .5s .25s both;
 `;
 
-export const Title = styled.h1`
-  font-family: 'Unbounded', 'DM Sans', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
-  font-weight: 900;
-  line-height: .95;
-  text-align: center;
-  letter-spacing: -.04em;
-  color: #fff;
-  text-shadow:
-    0 0 20px rgba(255,69,0,.5),
-    0 0 60px rgba(255,69,0,.2);
-
-  .hollow {
-    -webkit-text-stroke: 1.5px rgba(255,255,255,.6);
-    color: transparent;
-    text-shadow: none;
-  }
-
-  /* sobrescreve o span do seu Title original */
-  span {
-    -webkit-text-stroke: 1.5px rgba(255,255,255,.6);
-    color: transparent;
-    text-shadow: none;
-    font-family: 'Unbounded', 'DM Sans', sans-serif;
-    -webkit-text-fill-color: transparent;
-  }
-`;
-
-/* ═══════════════════════════════════════
-   STATS — lateral esquerda
-═══════════════════════════════════════ */
-export const StatsBadge = styled.div`
-  position: fixed;
-  top: 50%; left: 3rem;
-  transform: translateY(-50%);
-  z-index: 3;
-  display: flex; flex-direction: column; gap: 2rem;
-  pointer-events: none;
-
-  .stat {
-    border-left: 2px solid rgba(255,69,0,.3);
-    padding-left: .875rem;
-  }
-  .stat-val {
-    font-family: 'Unbounded', sans-serif;
-    font-size: 1.3rem; font-weight: 900;
-    color: rgba(255,255,255,.6); line-height: 1;
-    letter-spacing: -.04em;
-  }
-  .stat-lbl {
-    font-size: .55rem; font-weight: 700;
-    letter-spacing: .18em; text-transform: uppercase;
-    color: rgba(255,255,255,.2); margin-top: .25rem;
-  }
-
-  @media (max-width: 768px) { display: none; }
-`;
-
-/* ═══════════════════════════════════════
-   NEON SIGN — lateral direita
-═══════════════════════════════════════ */
-export const NeonSign = styled.div`
-  position: fixed;
-  top: 50%; right: 3rem;
-  transform: translateY(-50%);
-  z-index: 3;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-family: 'Unbounded', sans-serif;
-  font-size: .6rem; font-weight: 700;
-  letter-spacing: .3em; text-transform: uppercase;
-  color: rgba(255,69,0,.2);
-  animation: ${neonPulse} 3s ease-in-out infinite;
-  pointer-events: none;
-
-  @media (max-width: 768px) { display: none; }
-`;
-
-/* ═══════════════════════════════════════
-   EMBERS — partículas de brasa
-═══════════════════════════════════════ */
-export const Embers = styled.div`
-  position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
-
-  .ember {
-    position: absolute;
-    border-radius: 50%;
-    animation: ${riseEmber} linear infinite;
-    opacity: 0;
-  }
-`;
-
-/* ═══════════════════════════════════════
-   RIGHT CONTAINER → vira a FORM STRIP
-═══════════════════════════════════════ */
-export const RightContainer = styled.div`
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 10;
-  background: rgba(8,6,4,.96);
-  border-top: 1px solid rgba(255,69,0,.2);
-  padding: 1.75rem clamp(1.5rem, 8vw, 6rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  align-items: end;
-  gap: 1.25rem;
-  backdrop-filter: blur(20px);
-  animation: ${stripUp} .7s .2s cubic-bezier(.4,0,.2,1) both;
-
-  /* linha de acento topo */
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg,
-      transparent 0%,
-      #ff4500 30%,
-      #ffc107 50%,
-      #ff4500 70%,
-      transparent 100%
-    );
-    opacity: .8;
-  }
-
-  /* label "Acesse sua conta" acima da faixa */
-  &::after {
-    content: 'Acesse sua conta';
-    position: absolute;
-    top: -2.5rem; left: clamp(1.5rem, 8vw, 6rem);
-    font-family: 'Unbounded', sans-serif;
-    font-size: .6rem; font-weight: 700;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: rgba(255,255,255,.2);
-    white-space: nowrap;
-  }
-
-  /* parágrafo de cadastro */
-  p {
-    position: absolute;
-    bottom: 1.75rem; right: clamp(1.5rem, 8vw, 6rem);
-    font-size: .75rem; color: rgba(255,200,100,.3);
-    white-space: nowrap;
-
-    a {
-      color: #ff4500; text-decoration: none; font-weight: 600;
-      transition: opacity .2s;
-      &:hover { opacity: .75; }
-    }
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: .875rem;
-    padding: 1.5rem;
-    max-height: 65vh;
-    overflow-y: auto;
-
-    p { position: static; margin-top: .5rem; }
-  }
-`;
-
-/* ═══════════════════════════════════════
-   FORM
-═══════════════════════════════════════ */
-export const Form = styled.form`
-  display: contents; /* os filhos participam direto do grid do RightContainer */
-`;
-
-/* ═══════════════════════════════════════
+/* ═══════════════════════════
    INPUT CONTAINER
-═══════════════════════════════════════ */
+═══════════════════════════ */
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: .45rem;
   width: 100%;
 
   label {
-    font-size: .6rem; font-weight: 700;
-    letter-spacing: .18em; text-transform: uppercase;
-    color: rgba(255,180,80,.35);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,230,180,.35);
   }
 
   input {
     width: 100%;
-    background: rgba(255,80,0,.07);
-    border: 1px solid rgba(255,100,0,.2);
-    border-radius: 6px;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .9rem; font-weight: 400;
-    padding: .72rem 1rem;
-    height: 46px;
+    background: rgba(255,120,0,.06);
+    border: 1.5px solid rgba(255,160,60,.14);
+    border-radius: 10px;
+    color: #fdf6e9;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 400;
+    padding: .8rem 1rem;
     outline: none;
-    transition: border-color .2s, background .2s, box-shadow .2s;
+    transition: border-color .22s, background .22s, box-shadow .22s;
 
-    &::placeholder { color: rgba(255,200,100,.15); }
+    &::placeholder { color: rgba(255,230,180,.16); font-weight: 300; }
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      -webkit-box-shadow: 0 0 0 1000px #120800 inset;
-      -webkit-text-fill-color: #fff;
+      -webkit-box-shadow: 0 0 0 1000px #221208 inset;
+      -webkit-text-fill-color: #fdf6e9;
       transition: background-color 9999s;
     }
 
     &:hover {
-      border-color: rgba(255,140,0,.35);
-      background: rgba(255,80,0,.1);
+      border-color: rgba(255,160,60,.28);
+      background: rgba(255,120,0,.09);
     }
 
     &:focus {
-      border-color: #ffc107;
-      background: rgba(255,80,0,.12);
-      box-shadow: 0 0 0 3px rgba(255,193,7,.08);
+      border-color: #ffaa00;
+      background: rgba(255,120,0,.1);
+      animation: ${amberGlow} 2s ease-in-out infinite;
     }
   }
 
   p {
-    font-size: 14px;
-    line-height: 80%;
+    font-size: .72rem;
     color: #ff4444;
     font-weight: 600;
+    min-height: .85rem;
     height: 10px;
+    line-height: 80%;
+    padding-left: .1rem;
 
-    &:not(:empty)::before {
-      content: '⚠ ';
-      font-size: .65rem;
-    }
+    &:not(:empty)::before { content: '⚠ '; font-size: .6rem; }
   }
 `;
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════
+   BUTTON WRAPPER
+   envolve o <Button> do seu projeto
+   para aplicar estilos sem quebrar o componente
+═══════════════════════════ */
+export const ButtonWrapper = styled.div`
+  margin-top: .35rem;
+  animation: ${fadeUp} .5s .38s both;
+
+  button, [type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #ff6b1a 0%, #d45200 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 700;
+    padding: .88rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s, filter .2s;
+    box-shadow: 0 4px 20px rgba(255,107,26,.3);
+
+    /* shimmer diagonal */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+      transform: skewX(-15deg);
+      transition: left .45s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,107,26,.45);
+      filter: brightness(1.06);
+
+      &::before { left: 160%; }
+    }
+
+    &:active { transform: translateY(0); }
+  }
+`;
+
+/* ═══════════════════════════
+   MENU TEASER — chips roláveis
+═══════════════════════════ */
+export const MenuTeaser = styled.div`
+  margin: 1.5rem 1.75rem 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,160,60,.1);
+  animation: ${fadeUp} .5s .5s both;
+
+  .teaser-label {
+    font-size: .58rem; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: rgba(255,230,180,.2); margin-bottom: .75rem;
+  }
+
+  .teaser-scroll {
+    display: flex; gap: .45rem;
+    overflow-x: auto; padding-bottom: 2px;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .chip {
+    flex-shrink: 0;
+    background: rgba(255,120,0,.07);
+    border: 1px solid rgba(255,160,60,.12);
+    border-radius: 8px;
+    padding: .4rem .75rem;
+    display: flex; align-items: center; gap: .35rem;
+    font-size: .7rem; font-weight: 500;
+    color: rgba(255,230,180,.4);
+    cursor: default;
+    transition: border-color .2s, color .2s, transform .2s;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: rgba(255,160,60,.3);
+      color: #fdf6e9;
+      transform: translateY(-1px);
+    }
+
+    span { font-size: .95rem; }
+  }
+`;
+
+/* ═══════════════════════════
    LINK
-═══════════════════════════════════════ */
+═══════════════════════════ */
 export const Link = styled(ReactLink)`
   text-decoration: none;
-  color: #ff4500;
+  color: #ff6b1a;
   font-weight: 600;
-  transition: opacity .2s;
-  &:hover { opacity: .75; }
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, opacity .2s;
+
+  &:hover {
+    border-color: #ff6b1a;
+    opacity: .85;
+  }
 `;

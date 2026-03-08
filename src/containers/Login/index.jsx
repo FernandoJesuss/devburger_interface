@@ -140,17 +140,32 @@ import { useUser } from '../../hooks/UserContext';
 import {
   GlobalStyle,
   Container,
-  BurgerHero,
-  ArcTitle,
-  Title,
-  StatsBadge,
-  NeonSign,
-  Embers,
+  FloatingEmojis,
   RightContainer,
+  PhotoStrip,
+  LogoOver,
+  FormBody,
+  Title,
+  TitleSub,
   Form,
   InputContainer,
+  ButtonWrapper,
+  MenuTeaser,
   Link,
 } from './styles';
+
+/* foto de burger (Unsplash, sem custo) */
+const BURGER_PHOTO =
+  'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=85';
+
+const EMOJIS  = ['🍔', '🥓', '🧀', '🍟', '🌶️', '🥤', '🧅', '🍦'];
+const CHIPS   = [
+  { icon: '🍔', label: 'Smash Clássico' },
+  { icon: '🥓', label: 'BBQ Bacon' },
+  { icon: '🍟', label: 'Fritas Especiais' },
+  { icon: '🥤', label: 'Milkshake' },
+  { icon: '🌶️', label: 'Crispy Hot' },
+];
 
 const schema = yup.object({
   email: yup
@@ -164,7 +179,7 @@ const schema = yup.object({
 }).required();
 
 export function Login() {
-  const navigate   = useNavigate();
+  const navigate       = useNavigate();
   const { putUserData } = useUser();
 
   const {
@@ -173,25 +188,20 @@ export function Login() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  /* ── partículas de brasa ── */
+  /* ── emojis flutuantes ── */
   useEffect(() => {
-    const container = document.getElementById('embers-wrap');
-    if (!container) return;
-    for (let i = 0; i < 28; i++) {
-      const el = document.createElement('div');
-      el.className = 'ember';
-      const size = 2 + Math.random() * 4;
+    const wrap = document.getElementById('floating-emojis');
+    if (!wrap) return;
+    for (let i = 0; i < 16; i++) {
+      const el = document.createElement('span');
+      el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
       el.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${Math.random() * 100}%;
-        bottom:${Math.random() * 30}%;
-        --drift:${(Math.random() - 0.5) * 120}px;
-        animation-duration:${3 + Math.random() * 6}s;
-        animation-delay:${Math.random() * 8}s;
-        box-shadow: 0 0 ${size * 2}px rgba(255,100,0,.6);
-        background: hsl(${20 + Math.random() * 30},100%,${55 + Math.random() * 20}%);
+        left: ${Math.random() * 100}vw;
+        animation-duration: ${12 + Math.random() * 16}s;
+        animation-delay: ${Math.random() * 18}s;
+        font-size: ${0.9 + Math.random() * 1.2}rem;
       `;
-      container.appendChild(el);
+      wrap.appendChild(el);
     }
   }, []);
 
@@ -223,77 +233,96 @@ export function Login() {
       <GlobalStyle />
 
       <Container>
-        {/* grade + glow ficam no ::before e ::after do Container */}
 
-        {/* partículas de brasa */}
-        <Embers id="embers-wrap" />
+        {/* emojis flutuando no fundo */}
+        <FloatingEmojis id="floating-emojis" aria-hidden="true" />
 
-        {/* burger flutuando */}
-        <BurgerHero aria-hidden="true">🍔</BurgerHero>
-
-        {/* título no topo */}
-        <ArcTitle>
-          <span className="dev-label">dev</span>
-          <Title>
-            Bur<span>guer</span>
-          </Title>
-        </ArcTitle>
-
-        {/* stats lateral esquerda */}
-        <StatsBadge aria-hidden="true">
-          <div className="stat">
-            <div className="stat-val">4.9★</div>
-            <div className="stat-lbl">Avaliação</div>
-          </div>
-          <div className="stat">
-            <div className="stat-val">28'</div>
-            <div className="stat-lbl">Entrega</div>
-          </div>
-          <div className="stat">
-            <div className="stat-val">12k</div>
-            <div className="stat-lbl">Pedidos</div>
-          </div>
-        </StatsBadge>
-
-        {/* neon lateral direita */}
-        <NeonSign aria-hidden="true">Artesanal · Fresco · Único</NeonSign>
-
-        {/* FORM STRIP — base da tela */}
+        {/* CARD */}
         <RightContainer>
-          <Form onSubmit={handleSubmit(onSubmit)} noValidate>
 
-            <InputContainer>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="seu@email.com"
-                autoComplete="email"
-                {...register('email')}
-              />
-              <p role="alert">{errors?.email?.message}</p>
-            </InputContainer>
+          {/* foto de burger no topo */}
+          <PhotoStrip>
+            <img
+              src={BURGER_PHOTO}
+              alt="Hambúrguer artesanal Dev Burguer"
+              fetchpriority="high"
+            />
 
-            <InputContainer>
-              <label htmlFor="password">Senha</label>
-              <input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                autoComplete="current-password"
-                {...register('password')}
-              />
-              <p role="alert">{errors?.password?.message}</p>
-            </InputContainer>
+            {/* logo + badge sobre a foto */}
+            <LogoOver>
+              <div className="logo">
+                <div className="logo-icon">🍔</div>
+                <div>
+                  <span className="logo-dev">dev</span>
+                  <span className="logo-name">Burguer</span>
+                </div>
+              </div>
+              <div className="open-badge">
+                <div className="open-dot" />
+                Aberto agora
+              </div>
+            </LogoOver>
+          </PhotoStrip>
 
-            <Button type="submit">Entrar →</Button>
+          {/* formulário */}
+          <FormBody>
+            <Title>
+              Bem-vindo de volta<span>!</span>
+            </Title>
+            <TitleSub>Acesse sua conta e faça seu pedido.</TitleSub>
 
-          </Form>
+            <Form onSubmit={handleSubmit(onSubmit)} noValidate>
 
+              <InputContainer>
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  autoComplete="email"
+                  {...register('email')}
+                />
+                <p role="alert">{errors?.email?.message}</p>
+              </InputContainer>
+
+              <InputContainer>
+                <label htmlFor="password">Senha</label>
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  autoComplete="current-password"
+                  {...register('password')}
+                />
+                <p role="alert">{errors?.password?.message}</p>
+              </InputContainer>
+
+              <ButtonWrapper>
+                <Button type="submit">Entrar na conta</Button>
+              </ButtonWrapper>
+
+            </Form>
+          </FormBody>
+
+          {/* chips do cardápio */}
+          <MenuTeaser>
+            <div className="teaser-label">Peça hoje</div>
+            <div className="teaser-scroll">
+              {CHIPS.map((c) => (
+                <div className="chip" key={c.label}>
+                  <span>{c.icon}</span>
+                  {c.label}
+                </div>
+              ))}
+            </div>
+          </MenuTeaser>
+
+          {/* link de cadastro */}
           <p>
             Não possui conta?{' '}
-            <Link to="/cadastro">Criar agora</Link>
+            <Link to="/cadastro">Clique aqui.</Link>
           </p>
+
         </RightContainer>
 
       </Container>
