@@ -126,6 +126,7 @@
 
 
 /*Depois*/
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -133,38 +134,37 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { api } from '../../services/api';
-import Logo from '../../assets/Logo.svg';
 import { Button } from '../../components/Button';
 import { useUser } from '../../hooks/UserContext';
 
 import {
   GlobalStyle,
   Container,
-  LeftContainer,
-  RightContainer,
+  BurgerHero,
+  ArcTitle,
   Title,
+  StatsBadge,
+  NeonSign,
+  Embers,
+  RightContainer,
   Form,
   InputContainer,
-  ButtonWrapper,
-  FooterText,
   Link,
 } from './styles';
 
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email('Digite um e-mail válido')
-      .required('O e-mail é obrigatório'),
-    password: yup
-      .string()
-      .min(6, 'A senha deve ter pelo menos 6 caracteres')
-      .required('Digite uma senha'),
-  })
-  .required();
+const schema = yup.object({
+  email: yup
+    .string()
+    .email('Digite um e-mail válido')
+    .required('O e-mail é obrigatório'),
+  password: yup
+    .string()
+    .min(6, 'A senha deve ter pelo menos 6 caracteres')
+    .required('Digite uma senha'),
+}).required();
 
 export function Login() {
-  const navigate = useNavigate();
+  const navigate   = useNavigate();
   const { putUserData } = useUser();
 
   const {
@@ -172,6 +172,28 @@ export function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+
+  /* ── partículas de brasa ── */
+  useEffect(() => {
+    const container = document.getElementById('embers-wrap');
+    if (!container) return;
+    for (let i = 0; i < 28; i++) {
+      const el = document.createElement('div');
+      el.className = 'ember';
+      const size = 2 + Math.random() * 4;
+      el.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        bottom:${Math.random() * 30}%;
+        --drift:${(Math.random() - 0.5) * 120}px;
+        animation-duration:${3 + Math.random() * 6}s;
+        animation-delay:${Math.random() * 8}s;
+        box-shadow: 0 0 ${size * 2}px rgba(255,100,0,.6);
+        background: hsl(${20 + Math.random() * 30},100%,${55 + Math.random() * 20}%);
+      `;
+      container.appendChild(el);
+    }
+  }, []);
 
   const onSubmit = async (data) => {
     const { data: userData } = await toast.promise(
@@ -184,11 +206,8 @@ export function Login() {
         success: {
           render() {
             setTimeout(() => {
-              if (userData?.admin) {
-                navigate('/admin/pedidos');
-              } else {
-                navigate('/');
-              }
+              if (userData?.admin) navigate('/admin/pedidos');
+              else navigate('/');
             }, 2000);
             return 'Seja Bem-Vindo(a) 👌';
           },
@@ -196,7 +215,6 @@ export function Login() {
         error: 'Email ou Senha incorretos 🤯',
       }
     );
-
     putUserData(userData);
   };
 
@@ -205,27 +223,45 @@ export function Login() {
       <GlobalStyle />
 
       <Container>
-        {/* ── LEFT: visual / logo ── */}
-        <LeftContainer>
-          {/* grain overlay */}
-          <div className="grain" aria-hidden="true" />
+        {/* grade + glow ficam no ::before e ::after do Container */}
 
-          <img src={Logo} alt="Logo Dev Burguer" />
+        {/* partículas de brasa */}
+        <Embers id="embers-wrap" />
 
-          <p className="left-label" aria-hidden="true">
-            Artesanal · Fresco · Rápido
-          </p>
-        </LeftContainer>
+        {/* burger flutuando */}
+        <BurgerHero aria-hidden="true">🍔</BurgerHero>
 
-        {/* ── RIGHT: form ── */}
-        <RightContainer>
+        {/* título no topo */}
+        <ArcTitle>
+          <span className="dev-label">dev</span>
           <Title>
-            Olá, seja bem-vindo ao <span>Dev Burguer!</span>
-            <br />
-            Acesse com seu <span>login e senha.</span>
+            Bur<span>guer</span>
           </Title>
+        </ArcTitle>
 
+        {/* stats lateral esquerda */}
+        <StatsBadge aria-hidden="true">
+          <div className="stat">
+            <div className="stat-val">4.9★</div>
+            <div className="stat-lbl">Avaliação</div>
+          </div>
+          <div className="stat">
+            <div className="stat-val">28'</div>
+            <div className="stat-lbl">Entrega</div>
+          </div>
+          <div className="stat">
+            <div className="stat-val">12k</div>
+            <div className="stat-lbl">Pedidos</div>
+          </div>
+        </StatsBadge>
+
+        {/* neon lateral direita */}
+        <NeonSign aria-hidden="true">Artesanal · Fresco · Único</NeonSign>
+
+        {/* FORM STRIP — base da tela */}
+        <RightContainer>
           <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+
             <InputContainer>
               <label htmlFor="email">Email</label>
               <input
@@ -250,16 +286,16 @@ export function Login() {
               <p role="alert">{errors?.password?.message}</p>
             </InputContainer>
 
-            <ButtonWrapper>
-              <Button type="submit">Entrar</Button>
-            </ButtonWrapper>
+            <Button type="submit">Entrar →</Button>
+
           </Form>
 
-          <FooterText>
+          <p>
             Não possui conta?{' '}
-            <Link to="/cadastro">Clique aqui.</Link>
-          </FooterText>
+            <Link to="/cadastro">Criar agora</Link>
+          </p>
         </RightContainer>
+
       </Container>
     </>
   );
