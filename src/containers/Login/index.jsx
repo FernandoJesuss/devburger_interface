@@ -129,6 +129,7 @@
 
 
 /*depois*/
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -137,7 +138,7 @@ import { toast } from 'react-toastify';
 
 import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
-// import { LoginButton } from './LoginButton';
+import { LoginButton } from './LoginButton';
 import { useUser } from '../../hooks/UserContext';
 
 import {
@@ -287,7 +288,7 @@ export function Login() {
       {/* Video Background */}
       <VideoBackground>
         <video autoPlay muted loop playsInline>
-          {/* <source src="https://assets.mixkit.co/videos/24785/24785-360.mp4" type="video/mp4" /> */}
+          <source src="https://assets.mixkit.co/videos/24785/24785-360.mp4" type="video/mp4" />
           <source src="https://assets.mixkit.co/videos/14010/14010-360.mp4" type="video/mp4" />
         </video>
         <Overlay />
