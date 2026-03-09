@@ -16,7 +16,7 @@ border: 1px solid ${(props) => props.theme.white};
 }
 
 &:active {
-    background-color: #6f355d;
+    /* background-color: #6f355d; */
 }
 
 `;
