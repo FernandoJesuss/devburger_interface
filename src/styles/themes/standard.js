@@ -1,7 +1,11 @@
 export const standardTheme = {
-purple: '#9758a6',
-darkPurple: '#5c2669',
-secondDarkPurple: '#6f357c',
+// purple: '#9758a6',
+// darkPurple: '#5c2669',
+// secondDarkPurple: '#6f357c',
+
+purple: '#C8000A',
+darkPurple: '#A0000A',
+secondDarkPurple: '#D8000C',
 orange: '#ff8c05',
 mainBlack: '#1f1f1f',
 dimgrayblack: '#363636',
