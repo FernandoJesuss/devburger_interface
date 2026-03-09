@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ContainerButton } from '../../components/Button/styles';
 
-export const LoginButton = styled(ContainerButton)`
+export const LoginButton = styled.button`
+  width: 100%;
   height: auto;
   padding: 16px;
   background: linear-gradient(135deg, #C8000A 0%, #A0000A 100%);
