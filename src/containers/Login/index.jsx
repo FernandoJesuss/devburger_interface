@@ -129,18 +129,31 @@
 
 
 /*depois*/
-import { useState, useEffect, Fragment } from 'react';
+// import { useState, useEffect, Fragment } from 'react';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from "yup";
+// import { useNavigate } from 'react-router-dom';
+// import { toast } from 'react-toastify';
+
+// import { api } from "../../services/api";
+// import Logo from '../../assets/Logo.svg';
+// import { LoginButton } from './LoginButton';
+// import { useUser } from '../../hooks/UserContext';
+
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
+
 
 import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
-import { LoginButton } from './LoginButton';
+import { Button } from "../../components/Button";
 import { useUser } from '../../hooks/UserContext';
-
 import {
   Container,
   VideoBackground,
