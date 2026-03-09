@@ -129,7 +129,7 @@
 
 
 /*depois*/
-import React from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -209,13 +209,13 @@ export function Login() {
   const navigate = useNavigate();
   const { putUserData } = useUser();
 
-  const [emailFilled, setEmailFilled] = React.useState(false);
-  const [senhaFilled, setSenhaFilled] = React.useState(false);
-  const [success, setSuccess]         = React.useState(false);
-  const [time, setTime]               = React.useState('');
+  const [emailFilled, setEmailFilled] = useState(false);
+  const [senhaFilled, setSenhaFilled] = useState(false);
+  const [success, setSuccess]         = useState(false);
+  const [time, setTime]               = useState('');
 
   // Clock
-  React.useEffect(() => {
+  useEffect(() => {
     const tick = () => setTime(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }));
     tick();
     const id = setInterval(tick, 1000);
@@ -233,11 +233,11 @@ export function Login() {
   const emailValue    = watch('email', '');
   const passwordValue = watch('password', '');
 
-  React.useEffect(() => {
+  useEffect(() => {
     setEmailFilled(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue));
   }, [emailValue]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSenhaFilled(passwordValue?.length >= 6);
   }, [passwordValue]);
 
@@ -418,10 +418,10 @@ export function Login() {
         <TickerLabel>🍔 Cardápio</TickerLabel>
         <TickerTrack>
           {tickerItems.map((item, i) => (
-            <React.Fragment key={i}>
+            <Fragment key={i}>
               <TickerItem>{item}</TickerItem>
               <span style={{ color: 'rgba(200,0,10,.35)', fontSize: 8, padding: '0 2px' }}>●</span>
-            </React.Fragment>
+            </Fragment>
           ))}
         </TickerTrack>
       </Ticker>
