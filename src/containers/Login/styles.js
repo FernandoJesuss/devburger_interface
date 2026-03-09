@@ -125,7 +125,7 @@
 
 
 /*depois*/
-    import styled, { css, keyframes } from 'styled-components';
+    import styled, { keyframes } from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 
 /* ─── ANIMATIONS ─── */
