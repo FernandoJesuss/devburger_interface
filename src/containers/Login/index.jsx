@@ -134,6 +134,8 @@ import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
 import { useUser } from '../../hooks/UserContext';
 
+
+
 import {
   Container,
   VideoBackground,
@@ -282,7 +284,7 @@ export function Login() {
       {/* Video Background */}
       <VideoBackground>
         <video autoPlay muted loop playsInline>
-          <source src="https://assets.mixkit.co/videos/24785/24785-360.mp4" type="video/mp4" />
+          {/* <source src="https://assets.mixkit.co/videos/24785/24785-360.mp4" type="video/mp4" /> */}
           <source src="https://assets.mixkit.co/videos/14010/14010-360.mp4" type="video/mp4" />
         </video>
         <Overlay />
