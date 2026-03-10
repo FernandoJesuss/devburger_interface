@@ -103,7 +103,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: 'Bebas Neue', sans-serif !important;
+  font-family: 'Alfa Slab One', serif !important;
   font-size: 38px;
   letter-spacing: 3px;
   font-weight: 400;
@@ -121,7 +121,7 @@ export const Title = styled.h2`
     left: 0;
     width: 48px;
     height: 3px;
-    background: linear-gradient(90deg, #C8000A, #FF2020);
+    background: #1f1f1f;
     border-radius: 2px;
   }
 `;
@@ -165,6 +165,15 @@ export const CategoryButton = styled(Link)`
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(200,0,10,.4);
   }
+`;
+
+export const SubTitle = styled.p`
+  font-size: 13px;
+  color: rgba(31,31,31,.4);
+  letter-spacing: 1px;
+  margin-top: -32px;
+  margin-bottom: 40px;
+  font-weight: 400;
 `;`
     
 `
