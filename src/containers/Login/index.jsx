@@ -132,7 +132,7 @@ import { toast } from 'react-toastify';
 
 import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
-import { LoginButton } from './LoginButton';
+import { Login } from './Login';
 import { useUser } from '../../hooks/UserContext';
 
 import {
