@@ -167,7 +167,7 @@ export const SectionHeader = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  font-family: 'Bebas Neue', sans-serif !important;
+  font-family: 'alfa slab one', sans-serif !important;
   font-size: 38px;
   letter-spacing: 3px;
   color: #1f1f1f;
