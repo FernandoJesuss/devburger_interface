@@ -33,7 +33,7 @@ export const ContainerButton = styled.button`
   border: 0;
   border-radius: 10px;
   background: linear-gradient(135deg, #C8000A 0%, #A0000A 100%);
-  font-family: "Bebas Neue", sans-serif;
+   font-family: "Bebas Neue", sans-serif !important;
   font-size: 20px;
   letter-spacing: 5px;
   color: #fff;
