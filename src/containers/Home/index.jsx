@@ -28,18 +28,13 @@ import {
   Banner,
   BannerBadge,
   Container,
-  SectionHeader,
-  SectionTitle,
-  SectionSub,
 } from "./styles";
 
 export function Home() {
   return (
     <main>
       <Banner>
-        <h1>
-          Bem-Vindo(a)!
-        </h1>
+        <h1>Bem-Vindo(a)!</h1>
         <BannerBadge>
           <span />
           <span>Aberto agora</span>
@@ -48,16 +43,7 @@ export function Home() {
 
       <Container>
         <div>
-          <SectionHeader delay=".1s">
-            <SectionTitle>Categorias</SectionTitle>
-            <SectionSub>Escolha o que você quer hoje</SectionSub>
-          </SectionHeader>
           <CategoryCarousel />
-
-          <SectionHeader delay=".2s" style={{ marginTop: 56 }}>
-            <SectionTitle>Ofertas do Dia</SectionTitle>
-            <SectionSub>Aproveite antes que acabe 🔥</SectionSub>
-          </SectionHeader>
           <OffersCarousel />
         </div>
       </Container>
