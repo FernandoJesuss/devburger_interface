@@ -132,7 +132,6 @@ import { toast } from 'react-toastify';
 
 import { api } from "../../services/api";
 import Logo from '../../assets/Logo.svg';
-import { LoginButton } from './LoginButton';
 import { useUser } from '../../hooks/UserContext';
 
 import {
@@ -178,6 +177,7 @@ import {
   SuccessEmoji,
   SuccessTitle,
   SuccessSub,
+  LoginButton,
 } from './styles';
 
 const schema = yup.object({  email: yup.string().email("Digite um e-mail válido").required("O e-mail é obrigatório"),

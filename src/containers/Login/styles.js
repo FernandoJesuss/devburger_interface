@@ -402,8 +402,54 @@ export const Tick = styled.div`
   box-shadow: 0 2px 10px rgba(255,208,0,.35);
 `;
 
-/* ─── LOGIN BUTTON (estende ContainerButton, sobrescreve o tema roxo) ─── */
-export { LoginButton } from './LoginButton';
+/* ─── LOGIN BUTTON ─── */
+export const LoginButton = styled.button`
+  && {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    background: linear-gradient(135deg, #C8000A 0%, #A0000A 100%);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 6px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all .22s ease;
+    box-shadow: 0 4px 0 #5A0005, 0 8px 30px rgba(200,0,10,.45);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #D8000C 0%, #AA0008 100%);
+      border: none;
+      box-shadow: 0 6px 0 #5A0005, 0 14px 40px rgba(200,0,10,.6);
+    }
+    &:active:not(:disabled) {
+      transform: translateY(1px);
+      background: #C8000A;
+      box-shadow: 0 2px 0 #5A0005;
+    }
+    &:disabled {
+      opacity: .3;
+      cursor: not-allowed;
+      transform: none;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transition: left .6s ease;
+    }
+    &:hover:not(:disabled)::after {
+      left: 160%;
+    }
+  }
+`;
 
 export const ForgotLink = styled.a`
   display: block;
