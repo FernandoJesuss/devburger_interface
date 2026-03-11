@@ -146,7 +146,8 @@ export const ContainerItems = styled.div`
   }
 `;
 
-export const CategoryButton = styled(Link)`
+export const CategoryButton = styled.button`
+
   position: relative;
   color: #fff;
   background: rgba(200, 0, 10, 0.85);

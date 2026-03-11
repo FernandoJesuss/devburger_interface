@@ -74,25 +74,25 @@ const CartContext = createContext({});
 
 export const CartProvider = ({ children }) => { 
     const [cartProducts, setCartProducts] = useState([]);
+const putProductInCart = (product) => {
+  const cartIndex = cartProducts.findIndex((prd) => prd.id === product.id);
 
-    const putProductInCart = (product) => {
-        const cartIndex = cartProducts.findIndex((prd) => prd.id === product.id);
-let newProductsInCart = []
-        if (cartIndex >=0) {
-newProductsInCart = cartProducts;
+  let newProductsInCart = [];
 
-newProductsInCart[cartIndex].quantity = newProductsInCart[cartIndex].quantity + 1;
+  if (cartIndex >= 0) {
+    // ✅ Cria novo array com novo objeto
+    newProductsInCart = cartProducts.map((prd) =>
+      prd.id === product.id
+        ? { ...prd, quantity: prd.quantity + 1 }
+        : prd
+    );
+  } else {
+    newProductsInCart = [...cartProducts, { ...product, quantity: 1 }];
+  }
 
-setCartProducts(newProductsInCart);
-
-        } else {
-            product.quantity = 1;
-            newProductsInCart = [...cartProducts, product];
-            setCartProducts(newProductsInCart);
-            
-        }
-        updateLocalStorage(newProductsInCart);
-    };
+  setCartProducts(newProductsInCart);
+  updateLocalStorage(newProductsInCart);
+};
 
     const clearCart = () => {
        setCartProducts([]);
