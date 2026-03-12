@@ -117,8 +117,570 @@
 
 
 /*depois */
+
+// import styled, { css, keyframes } from 'styled-components';
+// import { Link as RouterLink } from 'react-router-dom';
+
+// /* ─── ANIMATIONS ─── */
+// const blink = keyframes`
+//   0%, 100% { opacity: 1 }
+//   50%       { opacity: .15 }
+// `;
+// const panelIn = keyframes`
+//   from { opacity: 0; transform: translateY(20px) }
+//   to   { opacity: 1; transform: translateY(0) }
+// `;
+// const fieldIn = keyframes`
+//   from { opacity: 0; transform: translateY(10px) }
+//   to   { opacity: 1; transform: translateY(0) }
+// `;
+// const tickScroll = keyframes`
+//   from { transform: translateX(0) }
+//   to   { transform: translateX(-50%) }
+// `;
+// const popIn = keyframes`
+//   from { transform: scale(0) rotate(-10deg) }
+//   to   { transform: scale(1) rotate(0) }
+// `;
+// const shimmer = keyframes`
+//   from { left: -100% }
+//   to   { left: 160% }
+// `;
+// const stepBarIn = keyframes`
+//   from { transform: scaleY(0) }
+//   to   { transform: scaleY(1) }
+// `;
+
+// /* ─── TOKENS ─── */
+// const T = {
+//   red:        '#C8000A',
+//   redBright:  '#FF2020',
+//   redGlow:    'rgba(200,0,10,.35)',
+//   yellow:     '#FFD000',
+//   cream:      '#FFF8F0',
+//   creamDim:   'rgba(255,248,240,.55)',
+//   creamFaint: 'rgba(255,248,240,.18)',
+//   glassBg:    'rgba(8,6,4,.62)',
+//   glassBorder:'rgba(255,248,240,.1)',
+//   radius:     '14px',
+// };
+
+// /* ─── LAYOUT ─── */
+// export const Container = styled.div`
+//   height: 100vh;
+//   width: 100vw;
+//   overflow: hidden;
+//   background: #080604;
+//   font-family: 'Nunito Sans', sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   position: relative;
+// `;
+
+// /* ─── VIDEO BACKGROUND ─── */
+// export const VideoBackground = styled.div`
+//   position: fixed;
+//   inset: 0;
+//   z-index: 0;
+//   overflow: hidden;
+
+//   video {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     filter: brightness(.28) saturate(1.3) contrast(1.05);
+//   }
+// `;
+
+// export const Overlay = styled.div`
+//   position: absolute;
+//   inset: 0;
+//   background:
+//     linear-gradient(
+//       105deg,
+//       rgba(6,4,2,.96) 0%,
+//       rgba(6,4,2,.88) 32%,
+//       rgba(6,4,2,.55) 58%,
+//       rgba(6,4,2,.08) 100%
+//     ),
+//     linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 35%);
+// `;
+
+// /* ─── TOPBAR ─── */
+// export const Topbar = styled.header`
+//   position: fixed;
+//   top: 0; left: 0; right: 0;
+//   height: 56px;
+//   z-index: 40;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 48px;
+//   background: rgba(6,4,2,.7);
+//   backdrop-filter: blur(24px);
+//   -webkit-backdrop-filter: blur(24px);
+//   border-bottom: 1px solid ${T.glassBorder};
+// `;
+
+// export const TopbarBrand = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
+// `;
+
+// export const TopbarRight = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 20px;
+// `;
+
+// export const StatusDot = styled.span`
+//   width: 6px;
+//   height: 6px;
+//   border-radius: 50%;
+//   background: #22C55E;
+//   box-shadow: 0 0 8px #22C55E;
+//   display: inline-block;
+//   animation: ${blink} 2.5s ease-in-out infinite;
+// `;
+
+// /* ─── GLASS PANEL ─── */
+// export const Panel = styled.div`
+//   position: relative;
+//   width: 400px;
+//   flex-shrink: 0;
+//   background: ${T.glassBg};
+//   border: 1px solid ${T.glassBorder};
+//   border-radius: 24px;
+//   padding: 44px 40px 40px;
+//   backdrop-filter: blur(28px);
+//   -webkit-backdrop-filter: blur(28px);
+//   box-shadow:
+//     0 32px 80px rgba(0,0,0,.5),
+//     0 0 0 1px rgba(255,255,255,.04) inset,
+//     0 1px 0 rgba(255,255,255,.08) inset;
+//   opacity: 0;
+//   animation: ${panelIn} .75s cubic-bezier(.34,1.1,.64,1) .15s forwards;
+// `;
+
+// export const PanelAccent = styled.div`
+//   position: absolute;
+//   top: 0; left: 32px; right: 32px;
+//   height: 2px;
+//   background: linear-gradient(
+//     90deg, transparent, ${T.red}, ${T.redBright}, ${T.red}, transparent
+//   );
+//   border-radius: 0 0 2px 2px;
+//   opacity: .7;
+// `;
+
+// /* ─── LOGO ─── */
+// export const LogoWrapper = styled.div`
+//   margin-bottom: 32px;
+// `;
+
+// export const LogoName = styled.h1`
+//   font-family: 'Bebas Neue', sans-serif;
+//   font-size: 56px;
+//   line-height: .88;
+//   letter-spacing: 1px;
+//   color: ${T.cream};
+//   text-shadow: 0 2px 20px rgba(0,0,0,.4);
+
+//   em {
+//     font-family: 'Playfair Display', serif;
+//     font-style: italic;
+//     font-size: 52px;
+//     color: ${T.redBright};
+//     display: block;
+//     text-shadow: 0 0 40px ${T.redGlow};
+//   }
+// `;
+
+// export const LogoSub = styled.p`
+//   margin-top: 8px;
+//   font-size: 9px;
+//   letter-spacing: 4px;
+//   text-transform: uppercase;
+//   color: ${T.creamFaint};
+//   font-weight: 400;
+// `;
+
+// /* ─── DIVIDER ─── */
+// export const Divider = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 14px;
+//   margin: 24px 0;
+// `;
+
+// export const DividerLine = styled.div`
+//   flex: 1;
+//   height: 1px;
+//   background: ${T.glassBorder};
+// `;
+
+// export const DividerText = styled.span`
+//   font-size: 9px;
+//   letter-spacing: 3px;
+//   text-transform: uppercase;
+//   color: rgba(255,255,255,.15);
+// `;
+
+// /* ─── FORM ─── */
+// export const Form = styled.form`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 16px;
+// `;
+
+// export const Field = styled.div`
+//   opacity: 0;
+//   animation: ${fieldIn} .5s ease forwards;
+
+//   &:nth-child(1) { animation-delay: .4s; }
+//   &:nth-child(2) { animation-delay: .52s; }
+// `;
+
+// export const FieldLabel = styled.label`
+//   display: block;
+//   font-size: 9px;
+//   letter-spacing: 2.5px;
+//   text-transform: uppercase;
+//   font-weight: 600;
+//   margin-bottom: 8px;
+//   transition: color .28s ease;
+//   color: ${({ filled }) => filled ? T.yellow : T.creamFaint};
+// `;
+
+// export const FieldInner = styled.div`
+//   position: relative;
+// `;
+
+// export const FieldInput = styled.input`
+//   width: 100%;
+//   background: ${({ filled }) => filled ? 'rgba(255,208,0,.04)' : 'rgba(255,255,255,.05)'};
+//   border: 1px solid ${({ filled, hasError }) =>
+//     hasError  ? 'rgba(255,107,107,.5)' :
+//     filled    ? 'rgba(255,208,0,.22)'  :
+//                 'rgba(255,248,240,.08)'
+//   };
+//   border-radius: 10px;
+//   padding: 15px 46px 15px 16px;
+//   font-family: 'Nunito Sans', sans-serif;
+//   font-size: 15px;
+//   font-weight: 300;
+//   color: ${T.cream};
+//   outline: none;
+//   transition: all .28s ease;
+//   caret-color: ${T.redBright};
+//   letter-spacing: .2px;
+
+//   &::placeholder { color: rgba(255,248,240,.2); }
+
+//   &:focus {
+//     background: rgba(255,255,255,.08);
+//     border-color: rgba(200,0,10,.5);
+//     box-shadow: 0 0 0 3px rgba(200,0,10,.1), 0 2px 12px rgba(0,0,0,.2);
+//   }
+// `;
+
+// export const Tick = styled.div`
+//   position: absolute;
+//   right: 13px;
+//   top: 50%;
+//   transform: translateY(-50%) scale(${({ visible }) => visible ? 1 : 0});
+//   width: 24px;
+//   height: 24px;
+//   border-radius: 50%;
+//   background: ${T.yellow};
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 10px;
+//   font-weight: 800;
+//   color: #1A0A00;
+//   transition: transform .35s cubic-bezier(.34,1.5,.64,1);
+//   box-shadow: 0 2px 10px rgba(255,208,0,.35);
+// `;
+
+// /* ─── LOGIN BUTTON ─── */
+// export const LoginButton = styled.button`
+//   && {
+//     width: 100%;
+//     height: auto;
+//     padding: 16px;
+//     background: linear-gradient(135deg, #C8000A 0%, #A0000A 100%);
+//     border: none;
+//     border-radius: 10px;
+//     font-family: 'Bebas Neue', sans-serif;
+//     font-size: 18px;
+//     letter-spacing: 6px;
+//     color: #fff;
+//     cursor: pointer;
+//     position: relative;
+//     overflow: hidden;
+//     transition: all .22s ease;
+//     box-shadow: 0 4px 0 #5A0005, 0 8px 30px rgba(200,0,10,.45);
+
+//     &:hover:not(:disabled) {
+//       transform: translateY(-2px);
+//       background: linear-gradient(135deg, #D8000C 0%, #AA0008 100%);
+//       border: none;
+//       box-shadow: 0 6px 0 #5A0005, 0 14px 40px rgba(200,0,10,.6);
+//     }
+//     &:active:not(:disabled) {
+//       transform: translateY(1px);
+//       background: #C8000A;
+//       box-shadow: 0 2px 0 #5A0005;
+//     }
+//     &:disabled {
+//       opacity: .3;
+//       cursor: not-allowed;
+//       transform: none;
+//     }
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       top: 0; left: -100%;
+//       width: 50%; height: 100%;
+//       background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+//       transition: left .6s ease;
+//     }
+//     &:hover:not(:disabled)::after {
+//       left: 160%;
+//     }
+//   }
+// `;
+
+// export const ForgotLink = styled.a`
+//   display: block;
+//   text-align: right;
+//   margin: -4px 0 6px;
+//   font-size: 11px;
+//   color: rgba(255,255,255,.22);
+//   text-decoration: none;
+//   letter-spacing: .3px;
+//   border-bottom: 1px solid transparent;
+//   padding-bottom: 1px;
+//   align-self: flex-end;
+//   transition: all .28s ease;
+
+//   &:hover {
+//     color: ${T.redBright};
+//     border-color: rgba(255,32,32,.3);
+//   }
+// `;
+
+// export const RegisterText = styled.p`
+//   text-align: center;
+//   margin-top: 16px;
+//   font-size: 12px;
+//   color: rgba(255,255,255,.2);
+//   font-weight: 300;
+//   opacity: 0;
+//   animation: ${fieldIn} .5s ease .78s forwards;
+// `;
+
+// /* ─── ORDER TRACKER ─── */
+// export const Tracker = styled.aside`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 210px;
+//   flex-shrink: 0;
+//   opacity: 0;
+//   animation: ${panelIn} .7s ease .5s forwards;
+// `;
+
+// export const TrackerTitle = styled.p`
+//   font-size: 8px;
+//   letter-spacing: 4px;
+//   text-transform: uppercase;
+//   color: rgba(255,255,255,.18);
+//   font-weight: 600;
+//   margin-bottom: 4px;
+//   padding-left: 2px;
+// `;
+
+// export const Step = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
+//   padding: 11px 14px;
+//   border-radius: 10px;
+//   border: 1px solid ${({ done }) => done ? 'rgba(255,208,0,.15)' : 'rgba(255,248,240,.05)'};
+//   background: ${({ done }) => done ? 'rgba(255,208,0,.05)' : 'rgba(255,255,255,.025)'};
+//   transition: all .45s ease;
+//   position: relative;
+//   overflow: hidden;
+
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     left: 0; top: 0; bottom: 0;
+//     width: 2px;
+//     background: ${T.yellow};
+//     transform: scaleY(${({ done }) => done ? 1 : 0});
+//     transform-origin: bottom;
+//     transition: transform .45s cubic-bezier(.34,1.1,.64,1);
+//   }
+// `;
+
+// export const StepIcon = styled.span`
+//   font-size: 17px;
+//   width: 24px;
+//   text-align: center;
+//   opacity: ${({ done }) => done ? 1 : .3};
+//   transform: ${({ done }) => done ? 'scale(1.1)' : 'scale(1)'};
+//   transition: opacity .4s, transform .4s;
+// `;
+
+// export const StepInfo = styled.div`flex: 1;`;
+
+// export const StepName = styled.p`
+//   font-size: 11px;
+//   font-weight: 600;
+//   letter-spacing: .3px;
+//   color: ${({ done }) => done ? T.cream : 'rgba(255,248,240,.25)'};
+//   transition: color .4s;
+// `;
+
+// export const StepDesc = styled.p`
+//   font-size: 9px;
+//   margin-top: 2px;
+//   letter-spacing: .3px;
+//   color: ${({ done }) => done ? T.yellow : 'rgba(255,248,240,.12)'};
+//   transition: color .4s;
+// `;
+
+// export const StepBadge = styled.div`
+//   width: 18px;
+//   height: 18px;
+//   border-radius: 50%;
+//   border: 1.5px solid ${({ done }) => done ? T.yellow : 'rgba(255,248,240,.1)'};
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 8px;
+//   font-weight: 700;
+//   background: ${({ done }) => done ? T.yellow : 'transparent'};
+//   color: ${({ done }) => done ? '#1A0A00' : 'rgba(255,255,255,.2)'};
+//   box-shadow: ${({ done }) => done ? '0 0 10px rgba(255,208,0,.4)' : 'none'};
+//   transition: all .4s;
+//   flex-shrink: 0;
+// `;
+
+// export const OrderStatus = styled.div`
+//   margin-top: 4px;
+//   padding: 12px 14px;
+//   border-radius: 10px;
+//   border: 1px solid ${({ ready }) => ready ? 'rgba(200,0,10,.25)' : 'rgba(255,248,240,.05)'};
+//   background: ${({ ready }) => ready ? 'rgba(200,0,10,.08)' : 'rgba(255,255,255,.025)'};
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   transition: all .4s;
+// `;
+
+// export const StatusIndicator = styled.div`
+//   width: 7px;
+//   height: 7px;
+//   border-radius: 50%;
+//   flex-shrink: 0;
+//   background: ${({ ready }) => ready ? T.redBright : 'rgba(255,255,255,.15)'};
+//   box-shadow: ${({ ready }) => ready ? `0 0 10px ${T.redBright}` : 'none'};
+//   animation: ${({ ready }) => ready ? css`${blink} 1s ease-in-out infinite` : 'none'};
+//   transition: background .4s, box-shadow .4s;
+// `;
+
+// export const StatusText = styled.span`
+//   font-size: 10px;
+//   letter-spacing: .5px;
+//   flex: 1;
+//   color: ${({ ready }) => ready ? T.redBright : 'rgba(255,248,240,.25)'};
+//   transition: color .4s;
+// `;
+
+// /* ─── TICKER ─── */
+// export const Ticker = styled.div`
+//   position: fixed;
+//   bottom: 0; left: 0; right: 0;
+//   height: 36px;
+//   z-index: 40;
+//   display: flex;
+//   align-items: center;
+//   overflow: hidden;
+//   background: rgba(6,4,2,.88);
+//   backdrop-filter: blur(16px);
+//   -webkit-backdrop-filter: blur(16px);
+//   border-top: 1px solid ${T.glassBorder};
+// `;
+
+// export const TickerLabel = styled.div`
+//   flex-shrink: 0;
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+//   padding: 0 20px;
+//   border-right: 1px solid ${T.glassBorder};
+//   font-family: 'Bebas Neue', sans-serif;
+//   font-size: 10px;
+//   letter-spacing: 4px;
+//   color: ${T.redBright};
+//   white-space: nowrap;
+// `;
+
+// export const TickerTrack = styled.div`
+//   display: flex;
+//   animation: ${tickScroll} 32s linear infinite;
+//   white-space: nowrap;
+// `;
+
+// export const TickerItem = styled.span`
+//   font-size: 9px;
+//   letter-spacing: 2px;
+//   text-transform: uppercase;
+//   color: rgba(255,255,255,.18);
+//   padding: 0 22px;
+// `;
+
+// /* ─── SUCCESS SCREEN ─── */
+// export const SuccessOverlay = styled.div`
+//   position: fixed;
+//   inset: 0;
+//   z-index: 60;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 16px;
+//   background: rgba(6,4,2,.96);
+//   backdrop-filter: blur(24px);
+// `;
+
+// export const SuccessEmoji = styled.div`
+//   font-size: 72px;
+//   animation: ${popIn} .6s cubic-bezier(.34,1.4,.64,1);
+// `;
+
+// export const SuccessTitle = styled.h2`
+//   font-family: 'Bebas Neue', sans-serif;
+//   font-size: 52px;
+//   letter-spacing: 3px;
+//   color: ${T.cream};
+//   text-shadow: 0 0 40px ${T.redGlow};
+// `;
+
+// export const SuccessSub = styled.p`
+//   font-size: 14px;
+//   font-weight: 300;
+//   color: ${T.creamDim};
+// `;
+
+
+
+
 import styled, { css, keyframes } from 'styled-components';
-import { Link as RouterLink } from 'react-router-dom';
 
 /* ─── ANIMATIONS ─── */
 const blink = keyframes`
@@ -141,14 +703,6 @@ const popIn = keyframes`
   from { transform: scale(0) rotate(-10deg) }
   to   { transform: scale(1) rotate(0) }
 `;
-const shimmer = keyframes`
-  from { left: -100% }
-  to   { left: 160% }
-`;
-const stepBarIn = keyframes`
-  from { transform: scaleY(0) }
-  to   { transform: scaleY(1) }
-`;
 
 /* ─── TOKENS ─── */
 const T = {
@@ -161,7 +715,13 @@ const T = {
   creamFaint: 'rgba(255,248,240,.18)',
   glassBg:    'rgba(8,6,4,.62)',
   glassBorder:'rgba(255,248,240,.1)',
-  radius:     '14px',
+};
+
+/* ─── BREAKPOINTS ─── */
+const bp = {
+  sm:  '@media (max-width: 480px)',
+  md:  '@media (max-width: 768px)',
+  lg:  '@media (max-width: 1024px)',
 };
 
 /* ─── LAYOUT ─── */
@@ -173,6 +733,11 @@ export const Container = styled.div`
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   position: relative;
+
+  ${bp.md} {
+    height: 100dvh;
+    overflow-y: auto;
+  }
 `;
 
 /* ─── VIDEO BACKGROUND ─── */
@@ -202,6 +767,10 @@ export const Overlay = styled.div`
       rgba(6,4,2,.08) 100%
     ),
     linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 35%);
+
+  ${bp.md} {
+    background: rgba(6,4,2,.85);
+  }
 `;
 
 /* ─── TOPBAR ─── */
@@ -218,6 +787,15 @@ export const Topbar = styled.header`
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid ${T.glassBorder};
+
+  ${bp.md} {
+    padding: 0 20px;
+    height: 48px;
+  }
+
+  ${bp.sm} {
+    padding: 0 16px;
+  }
 `;
 
 export const TopbarBrand = styled.div`
@@ -230,6 +808,10 @@ export const TopbarRight = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  ${bp.sm} {
+    gap: 10px;
+  }
 `;
 
 export const StatusDot = styled.span`
@@ -259,6 +841,27 @@ export const Panel = styled.div`
     0 1px 0 rgba(255,255,255,.08) inset;
   opacity: 0;
   animation: ${panelIn} .75s cubic-bezier(.34,1.1,.64,1) .15s forwards;
+
+  ${bp.lg} {
+    width: 380px;
+    padding: 40px 36px;
+  }
+
+  ${bp.md} {
+    width: 100%;
+    max-width: 440px;
+    padding: 36px 28px;
+    border-radius: 20px;
+  }
+
+  ${bp.sm} {
+    width: 100%;
+    padding: 28px 20px;
+    border-radius: 16px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
 `;
 
 export const PanelAccent = styled.div`
@@ -275,6 +878,10 @@ export const PanelAccent = styled.div`
 /* ─── LOGO ─── */
 export const LogoWrapper = styled.div`
   margin-bottom: 32px;
+
+  ${bp.sm} {
+    margin-bottom: 20px;
+  }
 `;
 
 export const LogoName = styled.h1`
@@ -293,6 +900,11 @@ export const LogoName = styled.h1`
     display: block;
     text-shadow: 0 0 40px ${T.redGlow};
   }
+
+  ${bp.sm} {
+    font-size: 44px;
+    em { font-size: 40px; }
+  }
 `;
 
 export const LogoSub = styled.p`
@@ -310,6 +922,10 @@ export const Divider = styled.div`
   align-items: center;
   gap: 14px;
   margin: 24px 0;
+
+  ${bp.sm} {
+    margin: 16px 0;
+  }
 `;
 
 export const DividerLine = styled.div`
@@ -381,6 +997,11 @@ export const FieldInput = styled.input`
     border-color: rgba(200,0,10,.5);
     box-shadow: 0 0 0 3px rgba(200,0,10,.1), 0 2px 12px rgba(0,0,0,.2);
   }
+
+  ${bp.sm} {
+    font-size: 16px; /* Evita zoom no iOS */
+    padding: 13px 44px 13px 14px;
+  }
 `;
 
 export const Tick = styled.div`
@@ -424,18 +1045,15 @@ export const LoginButton = styled.button`
     &:hover:not(:disabled) {
       transform: translateY(-2px);
       background: linear-gradient(135deg, #D8000C 0%, #AA0008 100%);
-      border: none;
       box-shadow: 0 6px 0 #5A0005, 0 14px 40px rgba(200,0,10,.6);
     }
     &:active:not(:disabled) {
       transform: translateY(1px);
-      background: #C8000A;
       box-shadow: 0 2px 0 #5A0005;
     }
     &:disabled {
       opacity: .3;
       cursor: not-allowed;
-      transform: none;
     }
     &::after {
       content: '';
@@ -445,9 +1063,7 @@ export const LoginButton = styled.button`
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
       transition: left .6s ease;
     }
-    &:hover:not(:disabled)::after {
-      left: 160%;
-    }
+    &:hover:not(:disabled)::after { left: 160%; }
   }
 `;
 
@@ -489,6 +1105,15 @@ export const Tracker = styled.aside`
   flex-shrink: 0;
   opacity: 0;
   animation: ${panelIn} .7s ease .5s forwards;
+
+  ${bp.lg} {
+    width: 180px;
+  }
+
+  /* Esconde o tracker em telas menores */
+  ${bp.md} {
+    display: none;
+  }
 `;
 
 export const TrackerTitle = styled.p`
@@ -613,6 +1238,10 @@ export const Ticker = styled.div`
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid ${T.glassBorder};
+
+  ${bp.sm} {
+    height: 30px;
+  }
 `;
 
 export const TickerLabel = styled.div`
@@ -627,6 +1256,11 @@ export const TickerLabel = styled.div`
   letter-spacing: 4px;
   color: ${T.redBright};
   white-space: nowrap;
+
+  ${bp.sm} {
+    padding: 0 12px;
+    font-size: 9px;
+  }
 `;
 
 export const TickerTrack = styled.div`
@@ -660,6 +1294,8 @@ export const SuccessOverlay = styled.div`
 export const SuccessEmoji = styled.div`
   font-size: 72px;
   animation: ${popIn} .6s cubic-bezier(.34,1.4,.64,1);
+
+  ${bp.sm} { font-size: 52px; }
 `;
 
 export const SuccessTitle = styled.h2`
@@ -668,10 +1304,14 @@ export const SuccessTitle = styled.h2`
   letter-spacing: 3px;
   color: ${T.cream};
   text-shadow: 0 0 40px ${T.redGlow};
+
+  ${bp.sm} { font-size: 38px; }
 `;
 
 export const SuccessSub = styled.p`
   font-size: 14px;
   font-weight: 300;
   color: ${T.creamDim};
+
+  ${bp.sm} { font-size: 12px; text-align: center; padding: 0 24px; }
 `;

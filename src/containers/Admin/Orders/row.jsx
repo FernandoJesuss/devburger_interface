@@ -58,7 +58,17 @@ setOrders(newOrders);
                 <TableCell>{row.calories}</TableCell>
                 <TableCell>{formatDate(row.date)}</TableCell>
                 <TableCell>
-                    <SelectStatus
+<SelectStatus
+  options={orderStatusOptions.filter((status) => status.id !== 0)}
+  placeholder="Status"
+  value={orderStatusOptions.find((status) => status.value === row.status) || null}
+  onChange={(status) => newStatusOrder(row.orderId, status.value)}
+  isLoading={loading}
+  menuPortalTarget={document.body}
+/>
+
+
+                    {/* <SelectStatus
                      options={orderStatusOptions.filter( (status) => status.id !==0)}
                       placeholder="Status"
                       defaultValue={ orderStatusOptions.find(
@@ -68,7 +78,7 @@ setOrders(newOrders);
 
                         isLoading={loading}
                         menuPortalTarget={document.body}
-                      />
+                      /> */}
                 </TableCell>
             </TableRow>
             <TableRow>
