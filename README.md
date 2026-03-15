@@ -13,7 +13,7 @@
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com/)
 
-**[🚀 Ver Projeto ](https://devburger-app.netlify.app/)** · **[📂 Repositório Backend - Privado por segurança](#)**
+**[🚀 Ver Projeto](https://devburger-app.netlify.app/)** · **[📂 Repositório Backend - Privado por segurança](#)**
 
 </div>
 
@@ -29,11 +29,11 @@
 
 O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo completo de e-commerce: autenticação por perfil, cardápio com categorias, carrinho em tempo real, checkout e integração com **Stripe** para pagamentos. O sistema conta com painel administrativo para gestão de produtos, categorias e pedidos.
 
-> ⚠️ **Ambiente de demonstração** — imagens de produtos indisponíveis pois o backend está offline por razões de segurança.
+> ⚠️ **Ambiente de demonstração** — as imagens de produtos são servidas pelo backend local. Para visualizar o projeto completo com todas as funcionalidades, execute localmente seguindo as instruções abaixo.
 
 ---
 
-## 🖥️ Screenshots
+## 🖥️ Screenshots — Desktop
 
 | Login | Home |
 |-------|------|
@@ -52,6 +52,18 @@ O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo c
 **Painel Administrativo**
 
 ![Admin](./src/assets/painel_admin_devburguer.png)
+
+</div>
+
+---
+
+## 📱 Screenshots — Mobile
+
+<div align="center">
+
+| Home | Cardápio | Carrinho |
+|------|----------|----------|
+| <img src="./src/assets/home_mobile_devburguer.png" width="220"/> | <img src="./src/assets/cardapio_mobile_devburguer.png" width="220"/> | <img src="./src/assets/carrinho_mobile_devburguer.png" width="220"/> |
 
 </div>
 
