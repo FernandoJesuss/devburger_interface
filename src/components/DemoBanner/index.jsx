@@ -46,7 +46,7 @@ export function DemoBanner() {
     <Banner role="status" aria-live="polite">
       <Icon aria-hidden="true">🔒</Icon>
       <Text>
-        <strong>Ambiente de demonstração</strong> · Imagens de produtos indisponíveis — backend offline por razões de segurança.
+        <strong>Ambiente de demonstração</strong> · Para visualizar com todas as imagens, execute o projeto localmente.
       </Text>
     </Banner>
   )
