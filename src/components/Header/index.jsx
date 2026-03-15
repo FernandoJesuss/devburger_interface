@@ -122,7 +122,7 @@ import { UserCircle, ShoppingCart, List, X } from "@phosphor-icons/react";
 import { useNavigate, useResolvedPath } from "react-router-dom";
 import { useUser } from "../../hooks/UserContext";
 import { useCart } from "../../hooks/CartContext";
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo_devburguer.png";
 
 export function Header() {
   const navigate = useNavigate();
