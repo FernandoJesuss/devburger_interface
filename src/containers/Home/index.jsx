@@ -23,7 +23,38 @@
 
 /*depois*/
 
+// import { OffersCarousel, CategoryCarousel } from "../../components";
+// import {
+//   Banner,
+//   BannerBadge,
+//   Container,
+// } from "./styles";
+
+// export function Home() {
+//   return (
+//     <main>
+//       <Banner>
+//         <h1>Bem-Vindo(a)!</h1>
+//         <BannerBadge>
+//           <span />
+//           <span>Aberto agora</span>
+//         </BannerBadge>
+//       </Banner>
+
+//       <Container>
+//         <div>
+//           <CategoryCarousel />
+//           <OffersCarousel />
+//         </div>
+//       </Container>
+//     </main>
+//   );
+// }
+
+
+
 import { OffersCarousel, CategoryCarousel } from "../../components";
+import { DemoBanner } from "../../components/DemoBanner";
 import {
   Banner,
   BannerBadge,
@@ -33,6 +64,7 @@ import {
 export function Home() {
   return (
     <main>
+      <DemoBanner />
       <Banner>
         <h1>Bem-Vindo(a)!</h1>
         <BannerBadge>
