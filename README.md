@@ -1,297 +1,239 @@
-# 🍔 DevBurguer - Sistema Completo de Lanchonete Digital
+<div align="center">
 
-Uma aplicação full-stack que simula uma experiência real de compra em uma lanchonete digital, passando por todas as etapas de um sistema profissional: autenticação, painel administrativo, gerenciamento de produtos, carrinho de compras e integração com pagamentos.
+<img src="./src/assets/login_devburguer.png" alt="DevBurguer Logo" width="80"/>
+
+# 🍔 DevBurguer
+
+### Sistema completo de lanchonete digital — do pedido ao pagamento, em produção.
+
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)](https://stripe.com/)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io/)
+[![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com/)
+
+**[🚀 Ver Projeto ao Vivo](https://devburger-interface-pi.vercel.app/)** · **[📂 Repositório Frontend](https://github.com/FernandoJesuss/devburger_interface)** · **[📂 Repositório Backend - Privado por segurança](https://github.com/FernandoJesuss/devburguer)**
+
+</div>
+
+---
+
+## 📸 Preview
+
+![Home DevBurguer](./src/assets/home_devburguer.png)
+
+---
 
 ## 📋 Sobre o Projeto
 
-O DevBurguer foi desenvolvido para proporcionar uma experiência completa de e-commerce, desde o cadastro do usuário até a finalização da compra com pagamento integrado. O sistema conta com área administrativa para gerenciamento de produtos e pedidos, proporcionando uma solução robusta e profissional.
+O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo completo de e-commerce: autenticação por perfil, cardápio com categorias, carrinho em tempo real, checkout e integração com **Stripe** para pagamentos. O sistema conta com painel administrativo para gestão de produtos, categorias e pedidos.
+
+> ⚠️ **Ambiente de demonstração** — imagens de produtos indisponíveis pois o backend está offline por razões de segurança.
+
+---
+
+## 🖥️ Screenshots
+
+| Login | Home |
+|-------|------|
+| ![Login](./src/assets/login_devburguer.png) | ![Home](./src/assets/home_devburguer.png) |
+
+| Cardápio | Carrinho |
+|----------|----------|
+| ![Cardápio](./src/assets/cardapio_devburguer.png) | ![Carrinho](./src/assets/carrinho_devburguer.png) |
+
+| Pagamento | Confirmação |
+|-----------|-------------|
+| ![Pagamento](./src/assets/pagamento_devburguer.png) | ![Confirmação](./src/assets/confirmacao_devburguer.png) |
+
+<div align="center">
+
+**Painel Administrativo**
+
+![Admin](./src/assets/painel_admin_devburguer.png)
+
+</div>
+
+---
 
 ## ✨ Funcionalidades
 
 ### 🔐 Autenticação
-- Sistema de login e cadastro de usuários
-- Autenticação JWT segura
-- Controle de acesso e rotas protegidas
+- Login e cadastro com validação
+- Autenticação JWT segura com Bcrypt
+- Controle de acesso por perfil — cliente e admin
 
 ### 🏪 Área do Cliente
-- Página principal com cardápio organizado por categorias
-- Navegação entre hambúrgueres, bebidas, sobremesas e mais
-- Carrinho de compras com controle de quantidade
-- Totalização automática de pedidos
-- Integração com Stripe para pagamentos
+- Cardápio organizado por categorias (hambúrgueres, bebidas, sobremesas, entradas)
+- Carrossel de ofertas do dia
+- Carrinho com controle de quantidade e totalização automática
+- Taxa de entrega calculada automaticamente
+- Checkout integrado com Stripe
 
 ### 👨‍💼 Painel Administrativo
-- CRUD completo de produtos
-- Gerenciamento de categorias
-- Interface intuitiva para administradores
-- Controle de estoque e preços
+- CRUD completo de produtos e categorias
+- Gerenciamento de pedidos com status em tempo real
+- Filtros por status: Realizado, Em Preparação, Pronto, À Caminho, Entregue, Cancelado
 
-### 💳 Sistema de Pagamento
-- Integração com Stripe para pagamentos em tempo real
-- Feedback visual de compra bem-sucedida
+### 💳 Pagamento
+- Integração com Stripe via `PaymentIntent`
+- Feedback visual com ID do pagamento e status
 - Processamento seguro de transações
 
-## 📱 Screenshots do Projeto
+---
 
-### 🔑 Tela de Login
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Login.png" alt="Tela de Login" width="600"/>
+## 🛠️ Stack Tecnológica
 
-*Sistema de autenticação com validação e feedback visual*
+### Frontend
+| Tecnologia | Uso |
+|---|---|
+| React.js | Interface do usuário |
+| React Router | Gerenciamento de rotas |
+| Styled Components | Estilização |
+| Context API | Estado global (carrinho e usuário) |
+| Axios | Consumo de API |
 
-### 🏠 Página Principal - Home
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Home.png" alt="Página Home" width="600"/>
+### Backend
+| Tecnologia | Uso |
+|---|---|
+| Node.js + Express | Servidor e API REST |
+| JWT + Bcrypt | Autenticação e segurança |
+| PostgreSQL + Sequelize | Banco relacional e ORM |
+| Multer | Upload de arquivos |
+| Stripe | Gateway de pagamento |
+| Cloudinary | Armazenamento de imagens |
 
-*Interface moderna com produtos organizados por categorias*
+---
 
-### 🍽️ Página do Cardápio
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20Card%C3%A1io.png" alt="Página do Cardápio" width="600"/>
+## 🏗️ Decisões Técnicas
 
-*Catálogo completo de produtos organizados por categorias*
+**Autenticação dual por perfil** — JWT com `role` no payload permite controlar acesso de cliente e admin em uma única implementação, sem complexidade desnecessária.
 
-### 🛒 Carrinho de Compras
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20Carrinho.png" alt="Carrinho de Compras" width="600"/>
+**Context API em vez de Redux** — o volume de estado do carrinho não justificava Redux. O `CartContext` resolve com menos boilerplate e mais legibilidade.
 
-*Gerenciamento de pedidos com cálculo automático e controle de quantidade*
+**PaymentIntent no backend** — a confirmação do pagamento acontece via webhook do Stripe, garantindo que o pedido só é atualizado após processamento real — não apenas na resposta do frontend.
 
-### 💳 Processo de Pagamento
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento.png" alt="Tela de Pagamento" width="600"/>
+**PostgreSQL + Sequelize** — modelagem relacional para usuários, produtos, categorias e pedidos com migrations versionadas, facilitando deploys e rollbacks.
 
-*Integração com Stripe para pagamentos seguros em tempo real*
-
-### ✅ Confirmação de Compra
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20de%20pagamento%20confirmado.png" alt="Pagamento Confirmado" width="600"/>
-
-*Feedback visual de compra realizada com sucesso*
-
-### 📦 Painel Administrativo
-<img src="https://github.com/FernandoJesuss/devburger_interface/blob/main/src/assets/Tela%20ADM.png" alt="Painel Administrativo" width="600"/>
-
-*Interface completa para gerenciamento de produtos e categorias*
-
-## 🎯 Funcionalidades em Destaque
-
-<div align="center">
-  
-| 🔐 **Autenticação** | 🛍️ **E-commerce** | 👨‍💼 **Admin** |
-|:---:|:---:|:---:|
-| Login/Cadastro Seguro | Carrinho Inteligente | CRUD Completo |
-| JWT + Validação | Stripe Integration | Gestão de Produtos |
-| Controle de Acesso | Cálculo Automático | Interface Intuitiva |
-
-</div>
+---
 
 ## 📁 Estrutura do Projeto
 
 ### Frontend
 ```
 src/
-├── 📁 assets/                 # Recursos estáticos (imagens, ícones)
-├── 📁 components/             # Componentes reutilizáveis
-│   ├── Button/               # Componente de botão personalizado
-│   ├── CardProduct/          # Card de exibição de produtos
-│   ├── CartButton/           # Botão do carrinho
-│   ├── CartItems/            # Itens do carrinho
-│   ├── CartResume/           # Resumo do carrinho
-│   ├── CategoriesCarousel/   # Carrossel de categorias
-│   ├── Footer/               # Rodapé da aplicação
-│   ├── Header/               # Cabeçalho da aplicação
-│   ├── OffersCarousel/       # Carrossel de ofertas
-│   ├── SideNavAdmin/         # Navegação lateral do admin
-│   ├── Stripe/               # Componentes do Stripe
-│   └── Table/                # Componente de tabela
-├── 📁 containers/             # Páginas e containers principais
-│   ├── Admin/                # Painel administrativo
-│   ├── Cart/                 # Página do carrinho
-│   ├── Checkout/             # Processo de checkout
-│   ├── CompletePayment/      # Confirmação de pagamento
-│   ├── Home/                 # Página inicial
-│   ├── Login/                # Página de login
-│   ├── Menu/                 # Página do cardápio
-│   └── Register/             # Página de cadastro
-├── 📁 hooks/                  # Custom hooks
-│   ├── CartContext.jsx       # Context do carrinho
-│   ├── UserContext.jsx       # Context do usuário
-│   └── index.jsx             # Barrel exports
-├── 📁 services/               # Serviços e API calls
-├── 📁 styles/                 # Estilos globais
-├── 📁 utils/                  # Funções utilitárias
-├── 📁 config/                 # Configurações da aplicação
-└── main.jsx                   # Ponto de entrada da aplicação
+├── assets/                    # Imagens e ícones
+├── components/                # Componentes reutilizáveis
+│   ├── Button/
+│   ├── CardProduct/
+│   ├── CartButton/
+│   ├── CartItems/
+│   ├── CartResume/
+│   ├── CategoriesCarousel/
+│   ├── Header/
+│   ├── Footer/
+│   ├── OffersCarousel/
+│   ├── SideNavAdmin/
+│   ├── Stripe/
+│   └── Table/
+├── containers/                # Páginas
+│   ├── Admin/
+│   ├── Cart/
+│   ├── Checkout/
+│   ├── CompletePayment/
+│   ├── Home/
+│   ├── Login/
+│   ├── Menu/
+│   └── Register/
+├── hooks/                     # CartContext · UserContext
+├── services/                  # API calls
+├── utils/
+├── config/
+└── main.jsx
 ```
 
 ### Backend
 ```
 src/
-├── 📁 app/                    # Core da aplicação
-│   ├── 📁 controllers/        # Controladores das rotas
-│   │   ├── 📁 stripe/         # Integração com Stripe
-│   │   │   └── CreatePaymentIntent.js
-│   │   ├── CategoryController.js    # Gestão de categorias
-│   │   ├── OrderController.js       # Gestão de pedidos
-│   │   ├── ProductController.js     # Gestão de produtos
-│   │   ├── SessionController.js     # Autenticação/Sessões
-│   │   └── UserController.js        # Gestão de usuários
-│   ├── 📁 middlewares/        # Middlewares customizados
-│   ├── 📁 models/             # Modelos do banco de dados
-│   └── 📁 schemas/            # Schemas de validação
-├── 📁 config/                 # Configurações da aplicação
-│   ├── auth.js               # Configuração de autenticação
-│   ├── database.js           # Configuração do banco
-│   └── multer.js             # Configuração de upload
-├── 📁 database/               # Estrutura do banco
-│   ├── 📁 migrations/         # Migrações do banco
-│   └── index.js              # Conexão com banco
-├── 📁 uploads/                # Arquivos enviados pelos usuários
-├── app.js                     # Configuração da aplicação
-├── routes.js                  # Definição das rotas
-└── server.js                  # Servidor principal
+├── app/
+│   ├── controllers/
+│   │   ├── stripe/CreatePaymentIntent.js
+│   │   ├── CategoryController.js
+│   │   ├── OrderController.js
+│   │   ├── ProductController.js
+│   │   ├── SessionController.js
+│   │   └── UserController.js
+│   ├── middlewares/
+│   ├── models/
+│   └── schemas/
+├── config/
+│   ├── auth.js
+│   ├── database.js
+│   └── multer.js
+├── database/
+│   └── migrations/
+├── routes.js
+└── server.js
 ```
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-### Frontend
-- **React.js** - Biblioteca para construção da interface
-- **React Router** - Gerenciamento de rotas
-- **Styled Components** - Estilização de componentes
-- **Axios** - Consumo de APIs
-- **Context API** - Gerenciamento de estado
-
-### Backend
-- **Node.js** - Runtime JavaScript
-- **Express.js** - Framework web
-- **JWT** - Autenticação e autorização
-- **Bcrypt** - Criptografia de senhas
-- **Multer** - Upload de arquivos
-
-### Banco de Dados
-- **PostgreSQL** - Banco de dados relacional
-- **Sequelize** - ORM para Node.js
-
-### Integrações
-- **Stripe** - Gateway de pagamento
-- **Cloudinary** - Armazenamento de imagens
-
-## 🚀 Como Executar o Projeto
+## 🚀 Como Executar
 
 ### Pré-requisitos
-- Node.js (versão 16 ou superior)
-- npm ou yarn
+- Node.js 16+
 - PostgreSQL
-- Conta no Stripe para chaves de API
+- Conta no Stripe
 
-### Instalação
-
-1. **Clone o repositório**
-```bash
-git clone https://github.com/FernandoJesuss/devburguer.git
-cd devburguer
-```
-
-2. **Configure o Backend**
+### Backend
 ```bash
 cd backend
 npm install
 ```
 
-3. **Configure as variáveis de ambiente**
-Crie um arquivo `.env` na pasta backend:
+Crie o `.env`:
 ```env
 DATABASE_URL=sua_url_do_banco
-JWT_SECRET=sua_chave_jwt_secreta
-STRIPE_SECRET_KEY=sua_chave_secreta_stripe
+JWT_SECRET=sua_chave_jwt
+STRIPE_SECRET_KEY=sua_chave_stripe
 PORT=3001
 ```
 
-4. **Execute as migrações do banco**
 ```bash
 npm run migrate
-```
-
-5. **Inicie o servidor backend**
-```bash
 npm run dev
 ```
 
-6. **Configure o Frontend**
+### Frontend
 ```bash
-cd ../frontend
+cd frontend
 npm install
 ```
 
-7. **Configure as variáveis de ambiente do frontend**
-Crie um arquivo `.env` na pasta frontend:
+Crie o `.env`:
 ```env
 REACT_APP_API_URL=http://localhost:3001
 REACT_APP_STRIPE_PUBLIC_KEY=sua_chave_publica_stripe
 ```
 
-8. **Inicie o frontend**
 ```bash
 npm start
 ```
 
-O projeto estará disponível em:
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
-## 📚 Aprendizados Técnicos
-
-### Frontend (React.js)
-- Desenvolvimento de interfaces modernas e responsivas
-- Gerenciamento de estado com Context API
-- Consumo de APIs RESTful
-- Implementação de autenticação no frontend
-- Integração com gateway de pagamento
-- Controle de rotas e navegação
-
-### Backend (Node.js + Express)
-- Construção de APIs RESTful robustas
-- Implementação de autenticação JWT
-- CRUD completo com validações
-- Integração com banco de dados
-- Middleware de segurança
-- Integração com serviços externos (Stripe)
-
-### Banco de Dados
-- Modelagem de dados relacionais
-- Otimização de consultas
-- Migrações e seeders
-- Relacionamentos entre entidades
-
-## 🤝 Contribuição
-
-Contribuições são sempre bem-vindas! Para contribuir:
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+---
 
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 👨‍💻 Autor
-
-**Fernando Santos**
-- LinkedIn: [fernando-santos-jesus](https://www.linkedin.com/in/fernando-santos-jesus/)
-- GitHub: [@FernandoJesuss](https://github.com/FernandoJesuss)
-
----
-
-## 🔗 Links Úteis
-
-- [Documentação do React](https://reactjs.org/)
-- [Documentação do Node.js](https://nodejs.org/)
-- [Documentação do Stripe](https://stripe.com/docs)
-- [Documentação do Express](https://expressjs.com/)
-- [Documentação do Sequelize](https://sequelize.org/)
-
 ---
 
 <div align="center">
 
-⭐ **Se este projeto te ajudou, deixe uma estrela no repositório!** ⭐
+Desenvolvido por **[Fernando Santos](https://www.linkedin.com/in/fernando-santos-jesus/)** · [GitHub](https://github.com/FernandoJesuss) · [LinkedIn](https://www.linkedin.com/in/fernando-santos-jesus/)
 
 </div>
