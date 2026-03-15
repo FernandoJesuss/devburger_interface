@@ -13,7 +13,7 @@
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com/)
 
-**[🚀 Ver Projeto ](https://devburger-app.netlify.app/)** · **[📂 Repositório Frontend](https://github.com/FernandoJesuss/devburger_interface)** · **[📂 Repositório Backend - Privado por segurança](#)**
+**[🚀 Ver Projeto ](https://devburger-app.netlify.app/)** · **[📂 Repositório Backend - Privado por segurança](#)**
 
 </div>
 
@@ -45,7 +45,7 @@ O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo c
 
 | Pagamento | Confirmação |
 |-----------|-------------|
-| ![Pagamento](./src/assets/pagamento_devburguer.png) | ![Confirmação](./src/assets/confirmacao_devburguer.png) |
+| ![Pagamento](./src/assets/pagamento_devburguer.png) | ![Confirmação](./src/assets/confirmação_devburguer.png) |
 
 <div align="center">
 
