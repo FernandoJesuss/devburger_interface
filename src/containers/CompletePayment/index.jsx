@@ -124,7 +124,7 @@ import { useEffect, useState } from "react";
 import { useStripe } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo_devburguer.png";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(20px); }

@@ -1,4 +1,4 @@
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo_devburguer.png";
 import { CartItems, CartResume } from "../../components";
 import { Banner, Content, Title, Container } from "./styles";
 

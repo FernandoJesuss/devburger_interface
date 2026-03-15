@@ -243,7 +243,7 @@ import { useState } from "react";
 import { useCart } from "../../../hooks/CartContext";
 import { api } from "../../../services/api";
 import { toast } from "react-toastify";
-import Logo from "../../../assets/Logo.svg";
+import Logo from "../../../assets/logo_devburguer.png";
 import styled, { keyframes } from "styled-components";
 
 const fadeUp = keyframes`

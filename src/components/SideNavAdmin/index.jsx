@@ -45,7 +45,7 @@
 import { SignOut, X } from "@phosphor-icons/react";
 import { useResolvedPath } from "react-router-dom";
 
-import Logo from '../../assets/Logo.svg';
+import Logo from '../../assets/logo_devburguer.png';
 import { useUser } from "../../hooks/UserContext";
 import { navLinks } from "./navLinks";
 import { Container, NavLink, Footer, NavLinkContainer, CloseButton, AdminBadge } from "./styles";

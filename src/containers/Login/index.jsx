@@ -446,7 +446,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { api } from "../../services/api";
-import Logo from '../../assets/Logo.svg';
+import Logo from '../../assets/logo_devburguer.png';
 import { useUser } from '../../hooks/UserContext';
 
 import {

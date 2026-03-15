@@ -29,7 +29,7 @@ import { useState } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import { List } from "@phosphor-icons/react";
 import { SideNavAdmin } from "../../components";
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo_devburguer.png";
 import { Container, MobileTopbar, HamburgerButton, Overlay } from "./styles";
 
 export function AdminLayout() {
