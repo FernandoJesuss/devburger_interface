@@ -1,4 +1,4 @@
-✅ VERSÃO FINAL (PRONTA PRA USAR)
+
 <div align="center">
 
 <img src="./src/assets/logo_devburguer.png" alt="DevBurguer Logo" width="80"/>
