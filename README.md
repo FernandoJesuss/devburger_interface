@@ -1,10 +1,13 @@
+✅ VERSÃO FINAL (PRONTA PRA USAR)
 <div align="center">
 
 <img src="./src/assets/logo_devburguer.png" alt="DevBurguer Logo" width="80"/>
 
 # 🍔 DevBurguer
 
-### Sistema completo de lanchonete digital — do pedido ao pagamento, em produção.
+### Sistema completo de gerenciamento de pedidos para restaurantes
+
+Aplicação full-stack que simula um ambiente real de pedidos, com fluxo completo do cliente ao painel administrativo.
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
@@ -13,27 +16,41 @@
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io/)
 [![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com/)
 
-**[🚀 Ver Projeto](https://devburger-app.netlify.app/)** · **[📂 Repositório Backend - Privado por segurança](#)**
+**[🚀 Ver Projeto](https://devburger-app.netlify.app/)** · **[🔒 Backend privado (estratégia comercial)](#)**
 
 </div>
 
 ---
 
-## 📸 Preview
+## 📸 Visão geral
 
 ![Home DevBurguer](./src/assets/home_devburguer.png)
 
 ---
 
-## 📋 Sobre o Projeto
+## 🧠 Sobre o projeto
 
-O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo completo de e-commerce: autenticação por perfil, cardápio com categorias, carrinho em tempo real, checkout e integração com **Stripe** para pagamentos. O sistema conta com painel administrativo para gestão de produtos, categorias e pedidos.
+O **DevBurguer** é uma aplicação full-stack que simula um sistema real de restaurante, permitindo gerenciar pedidos, visualizar produtos e acompanhar todo o fluxo de atendimento em tempo real.
 
-> ⚠️ **Ambiente de demonstração** — as imagens de produtos são servidas pelo backend local. Para visualizar o projeto completo com todas as funcionalidades, execute localmente seguindo as instruções abaixo.
+O sistema cobre todo o ciclo de um pedido — do cardápio ao pagamento — incluindo um painel administrativo completo.
+
+> 💡 Projeto inspirado em sistemas reais utilizados por restaurantes  
+> 🔒 Backend mantido privado por estratégia comercial
 
 ---
 
-## 🖥️ Screenshots — Desktop
+## 🔄 Fluxo do sistema
+
+1. Cliente acessa o cardápio  
+2. Adiciona produtos ao carrinho  
+3. Finaliza o pedido  
+4. Pagamento processado com Stripe  
+5. Pedido aparece no painel administrativo  
+6. Status atualizado em tempo real  
+
+---
+
+## 🖥️ Interface
 
 | Login | Home |
 |-------|------|
@@ -47,51 +64,53 @@ O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo c
 |-----------|-------------|
 | ![Pagamento](./src/assets/pagamento_devburguer.png) | ![Confirmação](./src/assets/confirmação_devburguer.png) |
 
-<div align="center">
+---
 
-**Painel Administrativo**
+## 👨‍💼 Painel Administrativo
 
 ![Admin](./src/assets/painel_admin_devburguer.png)
 
-</div>
-
 ---
 
-## 📱 Screenshots — Mobile
-
-<div align="center">
+## 📱 Responsividade
 
 | Home | Cardápio | Carrinho |
 |------|----------|----------|
 | <img src="./src/assets/home_mobile_devburguer.png" width="220"/> | <img src="./src/assets/cardapio_mobile_devburguer.png" width="220"/> | <img src="./src/assets/carrinho_mobile_devburguer.png" width="220"/> |
 
-</div>
+---
+
+## 🚀 Funcionalidades
+
+### 🔐 Autenticação
+- Login e cadastro com validação  
+- JWT + Bcrypt  
+- Controle por perfil (cliente/admin)  
+
+### 🏪 Cliente
+- Cardápio por categorias  
+- Carrinho dinâmico  
+- Taxa automática  
+- Checkout com Stripe  
+
+### 👨‍💼 Admin
+- CRUD produtos/categorias  
+- Gestão de pedidos em tempo real  
+- Filtros por status  
+
+### 💳 Pagamento
+- Stripe (PaymentIntent)  
+- Confirmação segura via backend  
 
 ---
 
-## ✨ Funcionalidades
+## 🚀 Diferenciais
 
-### 🔐 Autenticação
-- Login e cadastro com validação
-- Autenticação JWT segura com Bcrypt
-- Controle de acesso por perfil — cliente e admin
-
-### 🏪 Área do Cliente
-- Cardápio organizado por categorias (hambúrgueres, bebidas, sobremesas, entradas)
-- Carrossel de ofertas do dia
-- Carrinho com controle de quantidade e totalização automática
-- Taxa de entrega calculada automaticamente
-- Checkout integrado com Stripe
-
-### 👨‍💼 Painel Administrativo
-- CRUD completo de produtos e categorias
-- Gerenciamento de pedidos com status em tempo real
-- Filtros por status: Realizado, Em Preparação, Pronto, À Caminho, Entregue, Cancelado
-
-### 💳 Pagamento
-- Integração com Stripe via `PaymentIntent`
-- Feedback visual com ID do pagamento e status
-- Processamento seguro de transações
+- Simulação de sistema real de pedidos  
+- Integração completa frontend + backend  
+- Pagamento real com Stripe  
+- Interface responsiva  
+- Estrutura preparada para SaaS  
 
 ---
 
@@ -100,33 +119,30 @@ O **DevBurguer** é uma aplicação full-stack de lanchonete digital com fluxo c
 ### Frontend
 | Tecnologia | Uso |
 |---|---|
-| React.js | Interface do usuário |
-| React Router | Gerenciamento de rotas |
-| Styled Components | Estilização |
-| Context API | Estado global (carrinho e usuário) |
-| Axios | Consumo de API |
+| React.js | Interface |
+| React Router | Rotas |
+| Styled Components | Estilo |
+| Context API | Estado |
+| Axios | API |
 
 ### Backend
 | Tecnologia | Uso |
 |---|---|
-| Node.js + Express | Servidor e API REST |
-| JWT + Bcrypt | Autenticação e segurança |
-| PostgreSQL + Sequelize | Banco relacional e ORM |
-| Multer | Upload de arquivos |
-| Stripe | Gateway de pagamento |
-| Cloudinary | Armazenamento de imagens |
+| Node.js + Express | API |
+| JWT + Bcrypt | Auth |
+| PostgreSQL + Sequelize | Banco |
+| Multer | Upload |
+| Stripe | Pagamento |
+| Cloudinary | Imagens |
 
 ---
 
 ## 🏗️ Decisões Técnicas
 
-**Autenticação dual por perfil** — JWT com `role` no payload permite controlar acesso de cliente e admin em uma única implementação, sem complexidade desnecessária.
-
-**Context API em vez de Redux** — o volume de estado do carrinho não justificava Redux. O `CartContext` resolve com menos boilerplate e mais legibilidade.
-
-**PaymentIntent no backend** — a confirmação do pagamento acontece via webhook do Stripe, garantindo que o pedido só é atualizado após processamento real — não apenas na resposta do frontend.
-
-**PostgreSQL + Sequelize** — modelagem relacional para usuários, produtos, categorias e pedidos com migrations versionadas, facilitando deploys e rollbacks.
+- JWT com controle de roles  
+- Context API para simplicidade  
+- PaymentIntent no backend (segurança real)  
+- PostgreSQL com migrations  
 
 ---
 
